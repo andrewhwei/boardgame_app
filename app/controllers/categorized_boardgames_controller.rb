@@ -1,0 +1,2 @@
+class CategorizedBoardgamesController < ApplicationController
+end

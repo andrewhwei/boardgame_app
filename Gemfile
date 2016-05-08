@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'font-awesome-rails'
 gem 'seed_dump'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
