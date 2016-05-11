@@ -1,15 +1,31 @@
-<header class="intro">
-    <div class="intro-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h1 class="brand-heading">WELCOME</h1>
-                    <p class="intro-text">Board game jazz goes here</p>
-                    <a href="#about" class="btn btn-circle page-scroll">
-                        <i class="fa fa-angle-double-down animated"></i>
-                    </a>
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="brand-heading">Board games index</h1>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Name</th>
+                                <th>Developer</th>
+                                <th>Mechanisms</th>
+                            </tr>
+                            <% @boardgames.each do |boardgame| %>
+                            <tr>
+                                <td><%= "#{boardgame.name}" %></td>
+                                <td><%= "#{boardgame.developer}" %></td>
+                                <% boardgame.categories.each do |category| %>
+                                <td>
+                                <%= "#{category.mechanism}" %>
+                                </td>
+                                <% end %>
+                            </tr>
+                            <% end %>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
+
