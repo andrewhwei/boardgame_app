@@ -12,8 +12,15 @@
 //
 //= require jquery
 //= require bootstrap.min
-//= require jquery.easing.min
-//= require grayscale
+//= require owl.carousel.min
+//= require jquery.fitvids
+//= require smoothScroll
+//= require nivo-lightbox.min
+//= require jquery.scrollTo
+//= require jquery.nav
+//= require wow.min
+//= require jquery.jigowatt
+//= require main
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

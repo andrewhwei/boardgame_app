@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+
+<!-- Meta Data -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Board game meetups">
+<meta name="author" content="Andrew Wei">
+
 <head>
   <title>Board Game Meetups</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -9,47 +16,129 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i>  <span class="light">Board Game</span> Meetups
-                </a>
-            </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <% if current_user %>
-                      <li class="page-scroll"><%= link_to "Sign out", "/users/sign_out", method: :delete %></li>
-                    <% else %>
-                      <li class="page-scroll"><%= link_to "Sign up", "/users/sign_up" %></li>
-                      <li class="page-scroll"><%= link_to "Sign in", "/users/sign_in" %></li>
-                    <% end %>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<!-- begin nav -->
+<!-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span>Menu</span>
+            </button>
+            <!-- begin logo in navigation -->
+            <a class="navbar-brand" href="#intro">
+                <img src="images/footer_logo.png" alt="logo small">
+            </a>
+            <!-- end logo in navigation -->
+        </div>  
+    
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav pull-right">
+                <!-- begin navigation items -->
+                <li class="current"><a href="#intro">Start</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#extra">Extra</a></li>
+                <li><a href="#video">Video</a></li>
+                <% if current_user %>
+                  <li><%= link_to "Sign out", "/users/sign_out", method: :delete %></li>
+                <% else %>
+                  <li><%= link_to "Sign up", "/users/sign_up" %></li>
+                  <li><%= link_to "Sign in", "/users/sign_in" %></li>
+                <% end %>
+                <!-- end navigation items -->
+            </ul>   
         </div>
-        <!-- /.container -->
-    </nav>
-
+    </div>
+<!-- </nav> -->
+<!-- end nav -->
 
 <%= yield %>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p><%= Time.now.strftime("%A, %b %d") %></p>
+<!-- begin footer section -->
+<footer class="footer" id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <!-- begin logo footer -->
+                <img src="images/footer_logo.png" alt="footer logo">
+                <!-- end logo footer -->
+                <p>
+                    Lorem ipsum dolor sit amet, 
+                    consectetur adipiscing elit. Aliquam 
+                    sem, nec iaculis nulla.
+                </p>
+                <p><small>Copyright &copy; 2014 Lamap</small></p>
+            </div>
+
+            <div class="col-md-2 col-md-offset-1 col-sm-3">
+                <h4>Sample Links</h4>
+                <div class="underline-small"></div>
+                <ul>
+                    <li>
+                        <a href="#">About us</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        Jobs
+                        <span class="jobs">We're hiring!</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Plans &amp; Pricing</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms &amp; Condition</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 col-md-offset-1 col-sm-3">
+                <h4>Draw us a line</h4>
+                <div class="underline-small"></div>
+                <ul>
+                    <li>Lamap</li>
+                    <li>Address</li>
+                    <li>Phonenumber</li>
+                    <li>
+                        <a href="mailto:info@yourdomain.com">info@domain.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 col-md-offset-1 col-sm-3">
+                <h4>Get Social</h4>
+                <div class="underline-small"></div>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                    <li>o
+                        <a href="#"><i class="fa fa-vimeo-square"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
-    </footer>
+    </div>
+</footer>
 
 
 

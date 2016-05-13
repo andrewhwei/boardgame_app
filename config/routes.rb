@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  
-  resources :boardgames
+  root 'users#index'
+  get '/users', to: 'users#index'
+
+  get '/boardgames', to: 'boardgames#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  # Example of regular route:
+  # Example of regular route:k
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

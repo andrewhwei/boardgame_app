@@ -11,8 +11,14 @@
  * file per style scope.
  *
  *= require bootstrap.min
- *= require font-awesome
- *= require grayscale
+ *= require font-awesome.css
+ *= require owl.theme
+ *= require owl.carousel
+ *= require nivo-theme
+ *= require nivo-lightbox
+ *= require style_light
+ *= require responsive
+ *= require color
  *= require_tree .
  *= require_self
  */

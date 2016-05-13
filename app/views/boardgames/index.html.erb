@@ -1,31 +1,31 @@
-    <!-- Intro Header -->
-    <header class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="brand-heading">Board games index</h1>
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>Name</th>
-                                <th>Developer</th>
-                                <th>Mechanisms</th>
-                            </tr>
-                            <% @boardgames.each do |boardgame| %>
-                            <tr>
-                                <td><%= "#{boardgame.name}" %></td>
-                                <td><%= "#{boardgame.developer}" %></td>
-                                <% boardgame.categories.each do |category| %>
-                                <td>
-                                <%= "#{category.mechanism}" %>
-                                </td>
-                                <% end %>
-                            </tr>
-                            <% end %>
-                        </table>
-                    </div>
+<!-- begin services section -->
+<section class="services" id="services">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-head">
+                    <h1>Board Game Index</h1>
+                    <span class="underline"></span>
                 </div>
             </div>
         </div>
-    </header>
 
+        <div class="row">
+            <% @boardgames.each do |boardgame| %>
+            <div class="col-md-3 col-sm-6">
+                <!-- begin single service item -->
+                <div class="service">
+                <h4><%= "#{boardgame.name} - #{boardgame.developer}"%></h4>
+                <% boardgame.categories.each do |category| %>
+                    <p><%= "#{category.mechanism}" %></p>
+                <% end %>
+                </div>
+                <!-- end single service item -->
+            </div>
+            <% end %>
+        </div>
+
+    </div>
+</section>
+<!-- end services section -->
