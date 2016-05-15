@@ -1,3 +1,6 @@
+User.create!([
+  {email: "user@test.com", encrypted_password: "$2a$11$SOEpVQBPEkzzCOqXLRPtxO.PEu.jpGTXXxydDI33pl2j/B9VbjUaW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2016-05-13 21:53:59", last_sign_in_at: "2016-05-12 01:50:21", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: "4084325748", location: "13850 Saratoga Ave, Saratoga, CA", bio: "Hi! My name is John Doe. I live in the South Bay Area. I just moved into the area, and I am looking for a regular gaming group! I generally enjoy American games, but I am open to anything.", admin: false, first_name: "John", last_name: "Doe"}
+])
 Boardgame.create!([
   {name: "Blood Rage", developer: "Eric Lang"},
   {name: "Agricola", developer: "Uwe Rosenberg"},
@@ -71,4 +74,8 @@ Category.create!([
   {mechanism: "Dice rolling"},
   {mechanism: "Player elimination"},
   {mechanism: "Take that"}
+])
+Picture.create!([
+  {user_id: 2, link: "http://orig04.deviantart.net/aded/f/2013/066/c/2/profile_picture_by_naivety_stock-d5x8lbn.jpg"},
+  {user_id: 2, link: "http://orig03.deviantart.net/23a2/f/2010/352/f/7/headshotid_by_bokogreat_stock-d355xf3.jpg"}
 ])

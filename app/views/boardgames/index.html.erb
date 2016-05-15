@@ -11,22 +11,22 @@
         </div>
 
         <% @boardgames.each_with_index do |boardgame, index| %>
-        <% if index + 1 == 1 || (index + 1) % 4 == 0 %>
-        <div class="row">
+            <% if index + 1 == 1 || (index + 1) % 4 == 0 %>
+                <div class="row">
             <% end %>
-            <div class="service">
-                <div class="col-md-3 col-sm-6">
-                    <!-- begin single service item -->
-                    <h4><%= "#{boardgame.name} - #{boardgame.developer}" %></h4>
-                    <% boardgame.categories.each do |category| %>
-                    <p><%= category.mechanism  %></p>
-                    <% end %>
-                    <!-- end single service item -->
-                </div>
-            </div>
+                    <div class="service">
+                        <div class="col-md-3 col-sm-6">
+                            <!-- begin single service item -->
+                            <h4><%= "#{boardgame.name} - #{boardgame.developer}" %></h4>
+                            <% boardgame.categories.each do |category| %>
+                                <p><%= category.mechanism  %></p>
+                            <% end %>
+                            <!-- end single service item -->
+                        </div>
+                    </div>
             <% if (index + 1) % 4 == 0 %>
-        </div>
-        <% end %>
+                </div>
+            <% end %>
         <% end %>
     </div>
 </section>
