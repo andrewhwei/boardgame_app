@@ -346,7 +346,6 @@ section {
 
 .intro {
     background-image: url(intro-bg.jpg);
-    opacity: .9;
     background-attachment: fixed;
     -webkit-background-size: cover;
             background-size: cover;
@@ -482,14 +481,15 @@ section {
          -o-transition: all .15s linear;
             transition: all .15s linear;
 }
-    .service:hover {
-        margin-top: -10px;
-    }
+
+/*.service:hover {
+    margin-top: -10px;
+}*/
  
-.service i {
+/*.service i {
     font-size: 42px;
     margin-bottom: 30px;
-}
+}*/
 
 
 /* Newsletter Section */

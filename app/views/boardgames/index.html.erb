@@ -1,7 +1,6 @@
 <!-- begin services section -->
 <section class="services" id="services">
     <div class="container">
-
         <div class="row">
             <div class="col-md-12">
                 <div class="section-head">
@@ -11,21 +10,24 @@
             </div>
         </div>
 
+        <% @boardgames.each_with_index do |boardgame, index| %>
+        <% if index + 1 == 1 || (index + 1) % 4 == 0 %>
         <div class="row">
-            <% @boardgames.each do |boardgame| %>
-            <div class="col-md-3 col-sm-6">
-                <!-- begin single service item -->
-                <div class="service">
-                <h4><%= "#{boardgame.name} - #{boardgame.developer}"%></h4>
-                <% boardgame.categories.each do |category| %>
-                    <p><%= "#{category.mechanism}" %></p>
-                <% end %>
-                </div>
-                <!-- end single service item -->
-            </div>
             <% end %>
+            <div class="service">
+                <div class="col-md-3 col-sm-6">
+                    <!-- begin single service item -->
+                    <h4><%= "#{boardgame.name} - #{boardgame.developer}" %></h4>
+                    <% boardgame.categories.each do |category| %>
+                    <p><%= category.mechanism  %></p>
+                    <% end %>
+                    <!-- end single service item -->
+                </div>
+            </div>
+            <% if (index + 1) % 4 == 0 %>
         </div>
-
+        <% end %>
+        <% end %>
     </div>
 </section>
 <!-- end services section -->

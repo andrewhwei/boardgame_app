@@ -17,7 +17,8 @@ $(document).ready(function() {
 	$(window).scroll(function(){
 		if($(window).width() > 1260) {
 			windowScroll = $(window).scrollTop();
-			contentOpacity = 1 - (windowScroll / ($('#intro').offset().top+$('#intro').height()));
+			contentOpacity = 1 - (windowScroll / ($('#intro').offset()));
+			// contentOpacity = 1 - (windowScroll / ($('#intro').offset().top+$('#intro').height()));
 			$('.intro-section').css('transform','translateY('+Math.floor(windowScroll*0.16)+'px)');
 			$('.intro-section').css('-webkit-transform','translateY('+Math.floor(windowScroll*0.16)+'px)');
 			$('.intro-section').css('opacity',contentOpacity.toFixed(2));
@@ -47,16 +48,6 @@ $(document).ready(function() {
 	/* Buttons Scroll to Div */
 	$('.navbar-brand').click(function () {
 		$.scrollTo('.intro', 1000);
-	return false;
-	});
-
-	$('.btn-custom').click(function () {
-		$.scrollTo('.download', 1000);
-	return false;
-	});
-
-	$('.btn-custom-border, a.mouse').click(function () {
-		$.scrollTo('.features', 1000);
 	return false;
 	});
 
