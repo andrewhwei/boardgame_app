@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   delete '/users/:id', to: 'users#destroy'
 
   get '/boardgames', to: 'boardgames#index'
+
+  get '/pictures', to: 'pictures#index'
+  post '/pictures', to: 'pictures#create'
+  delete '/pictures/:id', to: 'pictures#destroy'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,51 @@
+<!-- begin screenshots section -->
+<section class="screenshots" id="screenshots">
+  
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-head">
+          <h1><%= "#{current_user.first_name}'s pictures" %></h1>
+          <span class="underline"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      
+      <div class="col-md-12">
+        <div class="screens">
+            <% current_user.pictures.each_with_index do |picture, index| %>
+              <!-- begin single screenshot -->
+              <div class="screen">
+                  <%= image_tag(picture.link) %>
+                  <%= link_to "Delete this image", "/pictures/#{picture.id}", method: :delete %>
+              </div>
+          <!-- end single screenshot -->
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="container">
+
+    <h1>Add a picture</h1>
+
+    <%= form_tag "/pictures", method: :post do %>
+
+    <div>
+      <%= hidden_field_tag :user_id, current_user.id %>
+    </div>
+    <div>
+      <%= label_tag :link %>
+      <%= text_field_tag :link %>
+    </div>
+
+    <%= submit_tag "Add Picture" %>
+
+    <% end %>
+    </div>
+</section>
+<!-- end screenshots section -->
