@@ -4,12 +4,12 @@
     <div class="row">
       <div class="col-md-6 col-sm-12">
         <div class="brief-content">
-          <h1><%= "#{@full_name}" %></h1>
+          <h1><%= @full_name %></h1>
           <div class="underline"></div>
-          <p><%= "#{@user.email}" %></p>
-          <p><%= "#{@user.phone_number}" %></p>
-          <p><%= "#{@user.location}" %></p>
-          <p><%= "#{@user.bio}" %></p>
+          <p><%= @user.email %></p>
+          <p><%= @user.phone_number %></p>
+          <p><%= @user.location %></p>
+          <p><%= @user.bio %></p>
         </div>
       </div>
       <div class="col-md-6 col-sm-12">
@@ -17,7 +17,7 @@
           <% @user.pictures.each do |picture| %>
             <!-- begin single slider item -->
             <div class="item">
-              <%= image_tag("#{picture.link}") %>
+              <%= image_tag(picture.link) %>
             </div>
             <!-- end single slider item -->
           <% end %>
@@ -27,44 +27,35 @@
   </div>
 
   <div class="container">
-    
     <div class="row">
       <div class="col-md-12">
         <div class="section-head">
-          <h1>Owned Boardgames</h1>
+          <h3>Owned Board Games</h1>
           <span class="underline"></span>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="testemonials">
-        
-        <% @ownerships.each do |owned_game| %>
-          <!-- begin single testomial item -->
-          <div class="testemonial">
-            <div class="col-md-5 client-data">
-<!--               <div class="client-image">
-                <img src="images/person.png" alt="client">
-              </div> -->
-              <div class="client-name">
-                <h4><%= owned_game.boardgame.name %></h4>
-                <p><%= owned_game.boardgame.developer %></p>
-              </div>
-            </div>
-            <div class="col-md-7 col-sm-12">
-              <div class="client-quote">
-                <p>User rating: <%= owned_game.rating %></p>
-                <p>Number of plays: <%= owned_game.num_of_plays %></p>
-              </div>
-            </div>
-          </div>
-          <!-- end single testomial item -->
-        <% end %>
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <th>Developer</th>
+        <th><%= "#{@user.first_name}'s rating" %></th>
+        <th>Number of plays</th>
+      </tr>
+      
+      <% @ownerships.each do |owned_game| %>
+        <tr>
+          <td><%= owned_game.boardgame.name %></td>
+          <td><%= owned_game.boardgame.developer %></td>
+          <td><%= owned_game.rating %></td>
+          <td><%= owned_game.num_of_plays %></td>
+        </tr>
+      <% end %>
 
-      </div>
-    </div>
-
+    </table>
+    
   </div>
+
 </section>
 <!-- end brief section -->
