@@ -1,0 +1,42 @@
+<!-- begin services section -->
+<section class="services" id="services">
+  <div class="container">
+
+    <h1>Edit information</h1>
+
+    <%= form_tag "/users/#{@user.id}", method: :patch do %>
+
+    <div>
+      <%= label_tag :first_name %>
+      <%= text_field_tag :first_name, @user.first_name %>
+    </div>
+    <div>
+      <%= label_tag :last_name %>
+      <%= text_field_tag :last_name, @user.last_name %>
+    </div>
+    <div>
+      <%= label_tag :email %>
+      <%= text_field_tag :email, @user.email %>
+    </div>
+    <div>
+      <%= label_tag :phone_number %>
+      <%= text_field_tag :phone_number, @user.phone_number %>
+    </div>
+    <div>
+      <%= label_tag :location %>
+      <%= text_field_tag :location, @user.location %>
+    </div>
+    <div>
+      <%= label_tag :bio %>
+      <%= text_area_tag :bio, @user.bio, size: "60" %>
+    </div>
+
+    <%= submit_tag "Update Information" %>
+
+    <% end %>
+
+    <%= link_to "Delete account", "/users/#{@user.id}", method: :delete %>
+
+  </div>
+</section>
+<!-- end services section -->

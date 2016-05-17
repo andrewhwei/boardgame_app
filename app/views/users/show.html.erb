@@ -25,5 +25,46 @@
       </div>
     </div>
   </div>
+
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-head">
+          <h1>Owned Boardgames</h1>
+          <span class="underline"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="testemonials">
+        
+        <% @ownerships.each do |owned_game| %>
+          <!-- begin single testomial item -->
+          <div class="testemonial">
+            <div class="col-md-5 client-data">
+<!--               <div class="client-image">
+                <img src="images/person.png" alt="client">
+              </div> -->
+              <div class="client-name">
+                <h4><%= owned_game.boardgame.name %></h4>
+                <p><%= owned_game.boardgame.developer %></p>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-12">
+              <div class="client-quote">
+                <p>User rating: <%= owned_game.rating %></p>
+                <p>Number of plays: <%= owned_game.num_of_plays %></p>
+              </div>
+            </div>
+          </div>
+          <!-- end single testomial item -->
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
 </section>
 <!-- end brief section -->
