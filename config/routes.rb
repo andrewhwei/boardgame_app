@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   get '/pictures', to: 'pictures#index'
   post '/pictures', to: 'pictures#create'
   delete '/pictures/:id', to: 'pictures#destroy'
+
+  get '/owned_games', to: 'ownerships#index'
+  post '/owned_games', to: 'ownerships#create'
+  patch '/owned_games/:id/edit', to: 'ownerships#update'
+  delete '/owned_games', to: 'ownerships#destroy'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
