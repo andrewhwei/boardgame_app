@@ -1,0 +1,23 @@
+<!-- begin services section -->
+<section class="services" id="services">
+  <div class="container">
+
+    <h1>Edit information</h1>
+
+    <%= form_tag "/owned_games/#{@ownership.id}", method: :patch do %>
+
+    <div>
+      <%= label_tag :rating %>
+      <%= text_field_tag :rating, @ownership.rating %>
+    </div>
+    <div>
+      <%= label_tag :number_of_plays %>
+      <%= text_field_tag :number_of_plays, @ownership.num_of_plays %>
+    </div>
+
+    <%= submit_tag "Update Information" %>
+
+    <% end %>
+  </div>
+</section>
+<!-- end services section -->

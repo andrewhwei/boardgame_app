@@ -25,7 +25,7 @@
           <td><%= owned_game.boardgame.developer %></td>
           <td><%= owned_game.rating %></td>
           <td><%= owned_game.num_of_plays %></td>
-          <td><%= link_to "Edit this board game", "/owned_games/#{owned_game.id}/edit", method: :patch %><br><%= link_to "Delete this board game", "/owned_games/#{owned_game.id}", method: :delete %></td>
+          <td><%= link_to "Edit this board game", "/owned_games/#{owned_game.id}/edit", method: :get %><br><%= link_to "Delete this board game", "/owned_games/#{owned_game.id}", method: :delete %></td>
         </tr>
       <% end %>
     </table>
@@ -34,12 +34,28 @@
 
   <div class="container">
 
-    <h1>Add a board game</h1>
+    <h3>Add a board game</h3>
+
     <%= form_tag "/owned_games", method: :post do %>
 
-
+      <div>
+        <%= hidden_field_tag :user_id, current_user.id %>
+      </div>
+      <div>
+        <%= label_tag "Board game: " %>
+        <%= collection_select :boardgame, :boardgame_id, Boardgame.all, :id, :name %>
+      </div>
+      <div>
+        <%= label_tag :rating %>
+        <%= text_field_tag :rating %>
+      </div>
+      <div>
+        <%= label_tag :number_of_plays %>
+        <%= text_field_tag :number_of_plays %>
+      </div>
 
     <%= submit_tag "Add board game" %>
+
     <% end %>
   </div>
 </section>

@@ -16,8 +16,9 @@ Rails.application.routes.draw do
 
   get '/owned_games', to: 'ownerships#index'
   post '/owned_games', to: 'ownerships#create'
-  patch '/owned_games/:id/edit', to: 'ownerships#update'
-  delete '/owned_games', to: 'ownerships#destroy'
+  get '/owned_games/:id/edit', to: 'ownerships#edit'
+  patch '/owned_games/:id', to: 'ownerships#update'
+  delete '/owned_games/:id', to: 'ownerships#destroy'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
