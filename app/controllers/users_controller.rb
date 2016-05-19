@@ -12,14 +12,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find_by(id: params[:id])
-    if current_user.id != @user.id
+    if !current_user || current_user.id != @user.id
       redirect_to "/"
     end
   end
 
   def update
     @user = User.find_by(id: params[:id])
-    if current_user.id != @user.id
+    if !current_user || current_user.id != @user.id
       redirect_to "/"
     end
     @user.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], location: params[:location], bio: params[:bio])
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by(id: params[:id])
-    if current_user.id != @user.id
+    if !current_user || current_user.id != @user.id
       redirect_to "/"
     end
     @user.destroy

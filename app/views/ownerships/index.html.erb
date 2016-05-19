@@ -42,8 +42,8 @@
         <%= hidden_field_tag :user_id, current_user.id %>
       </div>
       <div>
-        <%= label_tag "Board game: " %>
-        <%= collection_select :boardgame, :boardgame_id, Boardgame.all, :id, :name %>
+        <%= label_tag "Board game" %>
+        <%= collection_select :boardgame, :boardgame_id, @unowned_boardgames, :id, :name %>
       </div>
       <div>
         <%= label_tag :rating %>
