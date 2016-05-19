@@ -1,18 +1,18 @@
 User.create!([
-  {email: "user@test.com", encrypted_password: "$2a$11$SOEpVQBPEkzzCOqXLRPtxO.PEu.jpGTXXxydDI33pl2j/B9VbjUaW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 5, current_sign_in_at: "2016-05-15 23:07:02", last_sign_in_at: "2016-05-15 23:00:09", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: "4084325748", location: "13850 Saratoga Ave, Saratoga, CA", bio: "Hi! My name is John Doe. I live in the South Bay Area. I just moved into the area, and I am looking for a regular gaming group! I generally enjoy American games, but I am open to anything.", admin: false, first_name: "Jay", last_name: "Doe"},
+  {email: "user@test.com", encrypted_password: "$2a$11$SOEpVQBPEkzzCOqXLRPtxO.PEu.jpGTXXxydDI33pl2j/B9VbjUaW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 12, current_sign_in_at: "2016-05-19 15:23:43", last_sign_in_at: "2016-05-19 01:24:55", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: "4084325748", location: "13850 Saratoga Ave, Saratoga, CA", bio: "Hi! My name is John Doe. I live in the South Bay Area. I just moved into the area, and I am looking for a regular gaming group! I generally enjoy American games with a lot of conflict, but I am open to anything. ", admin: false, first_name: "Jay", last_name: "Doe"},
   {email: "admin@test.com", encrypted_password: "$2a$11$UsZtshjDHemB918DFtjrs.802udB8NO6UQRvScHmAU5AjgHWyYcGm", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2016-05-17 17:44:23", last_sign_in_at: "2016-05-15 23:20:35", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: nil, location: nil, bio: nil, admin: true, first_name: nil, last_name: nil}
 ])
 Boardgame.create!([
-  {name: "Blood Rage", developer: "Eric Lang"},
   {name: "Agricola", developer: "Uwe Rosenberg"},
   {name: "Pandemic", developer: "Matt Leacock"},
   {name: "Dominion", developer: "Donald X. Vaccarino"},
-  {name: "The Resistance", developer: "Don Eskridge"},
   {name: "Carcassonne", developer: "Klaus-Jürgen Wrede"},
   {name: "For Sale", developer: "Stefan Dorra"},
   {name: "Saint Petersburg", developer: "Bernd Brunnhofer"},
-  {name: "Space Hulk: Death Angel", developer: "Corey Konieczka"},
-  {name: "BANG!", developer: "Emiliano Sciarra"}
+  {name: "BANG!", developer: "Emiliano Sciarra"},
+  {name: "Blood Rage", developer: "Eric Lang"},
+  {name: "The Resistance", developer: "Don Eskridge"},
+  {name: "Space Hulk: Death Angel", developer: "Corey Konieczka"}
 ])
 CategorizedBoardgame.create!([
   {category_id: 2, boardgame_id: 2},
@@ -78,9 +78,10 @@ Category.create!([
 ])
 Ownership.create!([
   {user_id: 2, boardgame_id: 6, rating: 9, num_of_plays: 12},
+  {user_id: 2, boardgame_id: 2, rating: 10, num_of_plays: 2},
   {user_id: 2, boardgame_id: 10, rating: 8, num_of_plays: 3}
 ])
 Picture.create!([
   {user_id: 2, link: "http://orig04.deviantart.net/aded/f/2013/066/c/2/profile_picture_by_naivety_stock-d5x8lbn.jpg"},
-  {user_id: 2, link: "http://orig03.deviantart.net/23a2/f/2010/352/f/7/headshotid_by_bokogreat_stock-d355xf3.jpg"}
+  {user_id: 2, link: "https://s-media-cache-ak0.pinimg.com/736x/7f/38/83/7f388315dd991c282119b0c6608682ab.jpg"}
 ])
