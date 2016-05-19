@@ -6,11 +6,14 @@ class OwnershipsController < ApplicationController
       redirect_to "/"
     end
 
-    owned_boardgames_ids = Ownership.where("user_id = ?", current_user.id).select("boardgame_id as id")
-    unowned_boardgames_ids = Boardgame.where("id NOT IN (?)", owned_boardgames_ids).select("id as id")
-    @unowned_boardgames = Boardgame.joins(unowned_boardgames_ids).where("id = (?)", unowned_boardgames_ids.id)
-    # boardgames = Boardgame.all
-    # @unowned_boardgames = boardgames.merge(unowned_boardgames_ids)
+    # owned_boardgames_ids = Ownership.where("user_id = ?", current_user.id).select("boardgame_id as id")
+    # unowned_boardgames_ids = Boardgame.where("id NOT IN (?)", owned_boardgames_ids).select("id as id")
+    # @unowned_boardgames = Boardgame.joins(unowned_boardgames_ids).where("id = (?)", unowned_boardgames_ids)
+    # owned_boardgames = Boardgame.joins(:ownerships).where("ownerships.user_id = ?", current_user.id).select("boardgames.id, boardgames.name")
+    # @unowned_boardgames = Boardgame.where("id NOT IN (?)", owned_boardgames).select("id, name")
+
+    owned_boardgames = Boardgame.joins(:ownerships).where("ownerships.user_id = ?", current_user.id).select("boardgames.id")
+    @unowned_boardgames = Boardgame.where("id NOT IN (?)", owned_boardgames).select("id, name")
   end
 
   def create
