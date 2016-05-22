@@ -1,13 +1,9 @@
 class OwnershipsController < ApplicationController
 
   def index
-    @user = User.find_by(id: current_user.id)
-    if !current_user || current_user.id != @user.id
-      redirect_to "/"
-    end
-
-    owned_boardgames = Boardgame.joins(:ownerships).where("ownerships.user_id = ?", current_user.id).select("boardgames.id")
-    @unowned_boardgames = Boardgame.where("id NOT IN (?)", owned_boardgames).select("id, name")
+    @owned_boardgames = current_user.ownerships.joins(:boardgame).order('name')
+    undisplayed_owned_boardgames = Boardgame.joins(:ownerships).where("ownerships.user_id = ?", current_user.id).select("boardgames.id")
+    @unowned_boardgames = Boardgame.where("id NOT IN (?)", undisplayed_owned_boardgames).select("id, name").order(:name)
     # owned_boardgames_ids = Ownership.where("user_id = ?", current_user.id).select("boardgame_id as id")
     # unowned_boardgames_ids = Boardgame.where("id NOT IN (?)", owned_boardgames_ids).select("id as id")
     # @unowned_boardgames = Boardgame.joins(unowned_boardgames_ids).where("id = (?)", unowned_boardgames_ids)

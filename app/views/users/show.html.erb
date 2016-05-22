@@ -44,7 +44,7 @@
         <th>Number of plays</th>
       </tr>
       
-      <% @ownerships.each do |owned_game| %>
+      <% @owned_games.each do |owned_game| %>
         <tr>
           <td><%= owned_game.boardgame.name %></td>
           <td><%= owned_game.boardgame.developer %></td>
