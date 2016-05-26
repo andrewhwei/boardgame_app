@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   delete '/users/:id', to: 'users#destroy'
 
   get '/boardgames', to: 'boardgames#index'
+  get '/boardgames/new', to: 'boardgames#new'
+  post '/search', to: 'boardgames#search'
 
   get '/pictures', to: 'pictures#index'
   post '/pictures', to: 'pictures#create'

@@ -22,5 +22,6 @@
 //= require jquery.jigowatt
 //= require main
 //= require jquery_ujs
-//= require turbolinks
+//= require angular.min
+//= require app
 //= require_tree .

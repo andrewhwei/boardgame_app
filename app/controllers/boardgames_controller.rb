@@ -3,7 +3,16 @@ class BoardgamesController < ApplicationController
 
   def index
     @boardgames = Boardgame.all.order(:name)
-    @index_check = 0
+  end
+
+  def new
+    
   end
   
+  def search
+    search_term = params[:search]
+    @boardgames = Boardgame.where("name LIKE ?", "%#{search_term}%")
+    render :index
+  end
+
 end

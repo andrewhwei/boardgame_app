@@ -1,6 +1,10 @@
 <!-- begin services section -->
 <section class="services" id="services">
     <div class="container">
+        <%= form_tag "/search", method: :post do %>
+            <%= text_field_tag :search%>
+            <%= submit_tag "Search Title" %>
+        <% end %>
         <div class="row">
             <div class="col-md-12">
                 <div class="section-head">
