@@ -2,7 +2,7 @@
 <section class="services" id="services">
   <div class="container">
 
-    <h1>New Board Game </h1>
+    <h1>Add a board game</h1>
 
     <%= form_tag "/boardgames", method: :post do %>
 
@@ -15,7 +15,7 @@
       <%= text_field_tag :developer %>
     </div>
 
-    <%= submit_tag "Add board game" %>
+    <%= submit_tag "Submit" %>
 
     <% end %>
   </div>

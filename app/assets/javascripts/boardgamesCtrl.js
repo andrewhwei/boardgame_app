@@ -9,7 +9,6 @@
     });
   }
 
-
   window.$scope = $scope;
   });
 })();

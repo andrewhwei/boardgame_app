@@ -5,6 +5,16 @@ class BoardgamesController < ApplicationController
 
   end
 
+  def new
+    @boardgame = Boardgame.new(name: params[:name], developer: params[:developer])  
+    if @boardgame.save
+      
+      redirect_to "/boardgames"
+    else
+      render :new
+    end
+  end
+
   def create
     
   end
