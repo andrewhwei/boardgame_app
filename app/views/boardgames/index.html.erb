@@ -1,37 +1,41 @@
-<!-- begin services section -->
-<section class="services" id="services">
-    <div class="container">
-        <%= form_tag "/search", method: :post do %>
-            <%= text_field_tag :search%>
-            <%= submit_tag "Search Title" %>
-        <% end %>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-head">
-                    <h1>Board Game Index</h1>
-                    <span class="underline"></span>
+<div ng-app="app">
+  <div ng-controller="boardgamesCtrl" ng-init="setup()">
+  
+    <!-- begin services section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div>
+               <label>Filter board games:
+                    <input ng-model="nameFilter">
+               </label>
+            </div> 
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-head">
+                        <h1>Board Game Index</h1>
+                        <span class="underline"></span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <% @boardgames.each_with_index do |boardgame, index| %>
-            <% if index + 1 == 1 || (index + 1) % 4 == 0 %>
-                <div class="row">
-            <% end %>
+            <div class="row">
+                <div ng-repeat-start="boardgame in boardgames | filter: nameFilter track by $index ">
                     <div class="service">
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-3">
                             <!-- begin single service item -->
-                            <h4><%= "#{boardgame.name} - #{boardgame.developer}" %></h4>
-                            <% boardgame.categories.each do |category| %>
-                                <p><%= category.mechanism  %></p>
-                            <% end %>
+                            <h4>{{boardgame.name + " - " + boardgame.developer}}</h4>
+                            <p ng-repeat="category in boardgame.categories">{{category.mechanism}}</p>
                             <!-- end single service item -->
                         </div>
                     </div>
-            <% if (index + 1) % 4 == 0 %>
                 </div>
-            <% end %>
-        <% end %>
-    </div>
-</section>
-<!-- end services section -->
+                <div class="clearfix" ng-if="($index + 1) % 4 == 0"></div>
+                <div ng-repeat-end=""></div>  
+            </div>
+        </div>
+    </section>
+    <!-- end services section -->
+
+  </div>
+</div>

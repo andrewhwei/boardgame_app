@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   delete '/users/:id', to: 'users#destroy'
 
   get '/boardgames', to: 'boardgames#index'
-  get '/boardgames/new', to: 'boardgames#new'
-  post '/search', to: 'boardgames#search'
+  post '/boardgames/new', to: 'boardgames#create'
 
   get '/pictures', to: 'pictures#index'
   post '/pictures', to: 'pictures#create'
@@ -21,6 +20,18 @@ Rails.application.routes.draw do
   get '/owned_games/:id/edit', to: 'ownerships#edit'
   patch '/owned_games/:id', to: 'ownerships#update'
   delete '/owned_games/:id', to: 'ownerships#destroy'
+
+
+  namespace :api do
+    namespace :v1 do
+      get '/boardgames', to: 'boardgames#index'
+      post '/boardgames', to: 'boardgames#create'
+      patch '/boardgames/:id', to: 'boardgames#update'
+      delete '/boardgames/:id', to: 'boardgames#destory'
+    end
+  end
+
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
