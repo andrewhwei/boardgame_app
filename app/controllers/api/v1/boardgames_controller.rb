@@ -1,5 +1,7 @@
 class Api::V1::BoardgamesController < ApplicationController
 
+  before_action :restrict_access
+
   def index
     @boardgames = Boardgame.all.order(:id)
   end
@@ -13,7 +15,8 @@ class Api::V1::BoardgamesController < ApplicationController
   end
 
   def destroy
-    
+    boardgame = Boardgame.find_by(id: params[:id])
+    boardgame.delete
   end
 
 end

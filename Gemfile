@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+gem 'unirest'
 gem 'font-awesome-rails'
 gem 'seed_dump'
 gem 'devise'
 gem 'bootstrap-sass'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record

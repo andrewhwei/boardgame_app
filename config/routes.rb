@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       get '/boardgames', to: 'boardgames#index'
       post '/boardgames', to: 'boardgames#create'
       patch '/boardgames/:id', to: 'boardgames#update'
-      delete '/boardgames/:id', to: 'boardgames#destory'
+      delete '/boardgames/:id', to: 'boardgames#destroy'
     end
   end
 
