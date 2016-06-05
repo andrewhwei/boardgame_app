@@ -6,16 +6,23 @@ class BoardgamesController < ApplicationController
   end
 
   def new
-    @boardgame = Boardgame.new(name: params[:name], developer: params[:developer])  
-    if @boardgame.save
-      
-      redirect_to "/boardgames"
-    else
-      render :new
-    end
+
   end
 
   def create
+    new_boardgame = Boardgame.new(name: params[:name], developer: params[:developer])
+    if new_boardgame.save
+      new_categorizedBoardgame = CategorizedBoardgame.new(category_id: params[:category][:category_id], boardgame_id: new_boardgame.id)
+      new_categorizedBoardgame.save
+      redirect_to "/boardgames"
+    end
+  end
+
+  def edit
+    
+  end
+
+  def update
     
   end
 
