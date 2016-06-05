@@ -18,6 +18,8 @@
     <%= submit_tag "Submit" %>
 
     <% end %>
+
+    <div><%= link_to "Delete board game", "/boardgames/#{@boardgame.id}", method: :delete %></div>
   </div>
 </section>
 <!-- end services section -->

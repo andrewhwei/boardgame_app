@@ -9,12 +9,12 @@
     });
   }
 
-  $scope.deleteBoardgame = function(boardgame) {
-    $http.delete("/api/v1/boardgames/" + boardgame.id + ".json").then(function(response) {
-      var index = $scope.boardgames.indexOf(boardgame);
-      $scope.boardgames.splice(index, 1);
-    });
-  }
+  // $scope.editBoardgame = function(boardgame) {
+  //   $http.delete("/api/v1/boardgames/" + boardgame.id + ".json").then(function(response) {
+  //     var index = $scope.boardgames.indexOf(boardgame);
+  //     $scope.boardgames.splice(index, 1);
+  //   });
+  // }
 
   window.$scope = $scope;
   }]);

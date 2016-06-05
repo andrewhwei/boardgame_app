@@ -28,4 +28,14 @@ class BoardgamesController < ApplicationController
     redirect_to "/boardgames"
   end
 
+  def destroy
+    boardgame = Boardgame.find_by(id: params[:id])
+    categories = CategorizedBoardgame.where("boardgame_id = ?", boardgame.id)
+    categories.each do |category|
+      category.delete
+    end
+    boardgame.delete
+    redirect_to "/boardgames"
+  end
+
 end
