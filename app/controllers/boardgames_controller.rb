@@ -19,11 +19,13 @@ class BoardgamesController < ApplicationController
   end
 
   def edit
-    
+    @boardgame = Boardgame.find_by(id: params[:id])
   end
 
   def update
-    
+    boardgame = Boardgame.find_by(id: params[:id])
+    boardgame.update(name: params[:name], developer: params[:developer])
+    redirect_to "/boardgames"
   end
 
 end

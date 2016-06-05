@@ -4,19 +4,15 @@
 
     <h1>Add a board game</h1>
 
-    <%= form_tag "/boardgames", method: :post do %>
+    <%= form_tag "/boardgames/#{@boardgame.id}", method: :patch do %>
 
     <div>
       <%= label_tag :name %>
-      <%= text_field_tag :name %>
+      <%= text_field_tag :name, @boardgame.name %>
     </div>
     <div>
       <%= label_tag :developer %>
-      <%= text_field_tag :developer %>
-    </div>
-    <div>
-      <%= label_tag "Mechanism" %>
-      <%= collection_select :category, :category_id, Category.all, :id, :mechanism %>
+      <%= text_field_tag :developer, @boardgame.developer %>
     </div>
     
     <%= submit_tag "Submit" %>
