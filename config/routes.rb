@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   patch '/boardgames/:id', to: 'boardgames#update'
   delete '/boardgames/:id', to: 'boardgames#destroy'
 
+  get '/categories', to: 'categories#index'
+
   get '/pictures', to: 'pictures#index'
   post '/pictures', to: 'pictures#create'
   delete '/pictures/:id', to: 'pictures#destroy'
@@ -29,6 +31,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/boardgames', to: 'boardgames#index'
+      
+      get '/categories', to: 'categories#index'
+      get '/categories/:id/edit', to: 'categories#update'
+      delete '/categories/:id', to: 'categories#destroy'
     end
   end
 

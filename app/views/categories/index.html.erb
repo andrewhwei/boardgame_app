@@ -1,0 +1,35 @@
+<div ng-app="app">
+  <div ng-controller="categoriesCtrl" ng-init="setup()">
+  
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-head">
+              <h1>Categories</h1>
+              <span class="underline"></span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+           <label>Search categories:
+                <input ng-model="mechanismFilter">
+           </label>
+        </div> 
+
+        <table class="table table-striped">
+            <tr>
+                <th>Mechanism</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        
+            <tr ng-repeat="category in categories | filter: {mechanism: mechanismFilter} | orderBy: 'mechanism' track by $index">
+                <td><input ng-model="updateMechanism" value="{{category.mechanism}}"></td>
+                <td><button ng-click="editCategory(updateMechanism)">Update</button></td>
+                <td><button ng-click="deleteCategory(category)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+  </div>
+</div>
