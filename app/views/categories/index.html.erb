@@ -25,8 +25,8 @@
             </tr>
         
             <tr ng-repeat="category in categories | filter: {mechanism: mechanismFilter} | orderBy: 'mechanism' track by $index">
-                <td><input ng-model="updateMechanism" value="{{category.mechanism}}"></td>
-                <td><button ng-click="editCategory(updateMechanism)">Update</button></td>
+                <td>{{category.mechanism}}</td>
+                <td><input ng-model="updateMechanism"><button ng-click="editCategory(updateMechanism, category)">Update</button></td>
                 <td><button ng-click="deleteCategory(category)">Delete</button></td>
             </tr>
         </table>

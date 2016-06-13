@@ -16,12 +16,25 @@
     });
   }
 
-  // $scope.editCategory = function(category) {
-  //   $http.patch("/api/v1/categories/" + category.id + ".json").then(function(response) {
-  //     var index = $scope.categories.indexOf(category);
-  //     $scope.categories.(index, 1);
-  //   });
-  // }
+  $scope.editCategory = function(updateMechanism, category) {
+    var editedCategory = {mechanism: updateMechanism}
+    $http.patch("/api/v1/categories/" + category.id + ".json", editedCategory).then(function(response) {
+      var index = $scope.categories.indexOf(category);
+      $scope.categories[index].mechanism = updateMechanism;
+    });
+  }
+
+
+    // $scope.addTea = function(name, origin, weight, in_stock) {
+    //   var tea = {name: name, origin: origin, weight: weight, in_stock: in_stock};
+
+    //   $http.post("/api/v1/teas.json", tea).then(function(response) {
+    //     $scope.teas.push(response.data);
+    //   }, function(error) {
+    //     $scope.errors = error.data.errors;
+    //   });
+    // }
+
 
   window.$scope = $scope;
   }]);

@@ -5,7 +5,7 @@ class Api::V1::CategoriesController < ApplicationController
   end
 
   def update
-    categories = Category.find_by(id: params[:id])
+    category = Category.find_by(id: params[:id])
     category.update(mechanism: params[:mechanism])
     render json: {message: "Category updated"}
   end
