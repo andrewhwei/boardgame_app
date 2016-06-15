@@ -24,17 +24,14 @@
     });
   }
 
-
-    // $scope.addTea = function(name, origin, weight, in_stock) {
-    //   var tea = {name: name, origin: origin, weight: weight, in_stock: in_stock};
-
-    //   $http.post("/api/v1/teas.json", tea).then(function(response) {
-    //     $scope.teas.push(response.data);
-    //   }, function(error) {
-    //     $scope.errors = error.data.errors;
-    //   });
-    // }
-
+  $scope.addCategory = function(category) {
+    var newCategory = {mechanism: category};
+    $http.post("/api/v1/categories.json", newCategory).then(function(response) {
+      $scope.categories.push(response.data);
+      $scope.newCategory = null;
+      $scope.setup();
+    });
+  }
 
   window.$scope = $scope;
   }]);

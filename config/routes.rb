@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       get '/categories/:id/edit', to: 'categories#update'
       patch '/categories/:id', to: 'categories#update'
       delete '/categories/:id', to: 'categories#destroy'
+      post '/categories', to: 'categories#create'
     end
   end
 

@@ -16,4 +16,10 @@ class Api::V1::CategoriesController < ApplicationController
     render json: {message: "Category deleted"}
   end
 
+  def create
+    category = Category.new(mechanism: params[:mechanism])
+    category.save
+    render json: {message: "Category created"}
+  end
+
 end
