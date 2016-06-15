@@ -18,15 +18,9 @@
         </div> 
 
         <table class="table table-striped">
-            <tr>
-                <th>Mechanism</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
-        
             <tr ng-repeat="category in categories | filter: {mechanism: mechanismFilter} | orderBy: 'mechanism' track by $index">
                 <td>{{category.mechanism}}</td>
-                <td><input ng-model="updateMechanism"><button ng-click="editCategory(updateMechanism, category)">Update</button></td>
+                <td><input ng-model="category.update"><button ng-click="editCategory(category)">Update</button></td>
                 <td><button ng-click="deleteCategory(category)">Delete</button></td>
             </tr>
         </table>

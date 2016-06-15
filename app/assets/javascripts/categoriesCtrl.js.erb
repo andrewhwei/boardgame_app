@@ -16,11 +16,11 @@
     });
   }
 
-  $scope.editCategory = function(updateMechanism, category) {
-    var editedCategory = {mechanism: updateMechanism}
+  $scope.editCategory = function(category) {
+    var editedCategory = {mechanism: category.update}
     $http.patch("/api/v1/categories/" + category.id + ".json", editedCategory).then(function(response) {
-      var index = $scope.categories.indexOf(category);
-      $scope.categories[index].mechanism = updateMechanism;
+      category.mechanism = category.update;
+      category.update = null;
     });
   }
 
