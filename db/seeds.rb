@@ -1,6 +1,6 @@
 User.create!([
-  {email: "user@test.com", encrypted_password: "$2a$11$SOEpVQBPEkzzCOqXLRPtxO.PEu.jpGTXXxydDI33pl2j/B9VbjUaW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 12, current_sign_in_at: "2016-05-19 15:23:43", last_sign_in_at: "2016-05-19 01:24:55", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: "4084325748", location: "13850 Saratoga Ave, Saratoga, CA", bio: "Hi! My name is John Doe. I live in the South Bay Area. I just moved into the area, and I am looking for a regular gaming group! I generally enjoy American games with a lot of conflict, but I am open to anything. ", admin: false, first_name: "Jay", last_name: "Doe"},
-  {email: "admin@test.com", encrypted_password: "$2a$11$UsZtshjDHemB918DFtjrs.802udB8NO6UQRvScHmAU5AjgHWyYcGm", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2016-05-17 17:44:23", last_sign_in_at: "2016-05-15 23:20:35", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: nil, location: nil, bio: nil, admin: true, first_name: nil, last_name: nil}
+  {email: "admin@test.com", encrypted_password: "$2a$11$UsZtshjDHemB918DFtjrs.802udB8NO6UQRvScHmAU5AjgHWyYcGm", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 20, current_sign_in_at: "2016-06-16 01:08:25", last_sign_in_at: "2016-06-15 01:08:26", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: nil, location: nil, bio: nil, admin: true, first_name: nil, last_name: nil, api_key: "actual-api-key"},
+  {email: "user@test.com", encrypted_password: "$2a$11$SOEpVQBPEkzzCOqXLRPtxO.PEu.jpGTXXxydDI33pl2j/B9VbjUaW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 27, current_sign_in_at: "2016-06-16 01:08:40", last_sign_in_at: "2016-06-15 03:06:31", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: "4084325748", location: "13850 Saratoga Ave, Saratoga, CA", bio: "Hi! My name is John Doe. I live in the South Bay Area. I just moved into the area, and I am looking for a regular gaming group! I generally enjoy American games with a lot of conflict, but I am open to anything. ", admin: false, first_name: "Jay", last_name: "Doe", api_key: nil}
 ])
 Boardgame.create!([
   {name: "Agricola", developer: "Uwe Rosenberg"},
@@ -54,7 +54,6 @@ CategorizedBoardgame.create!([
   {category_id: 15, boardgame_id: 11}
 ])
 Category.create!([
-  {mechanism: "Action point allowance system"},
   {mechanism: "Area control"},
   {mechanism: "Area movement"},
   {mechanism: "Card drafting"},
@@ -71,10 +70,11 @@ Category.create!([
   {mechanism: "Voting"},
   {mechanism: "Tile placement"},
   {mechanism: "Bidding"},
-  {mechanism: "Action / movement programming"},
   {mechanism: "Dice rolling"},
   {mechanism: "Player elimination"},
-  {mechanism: "Take that"}
+  {mechanism: "Take that"},
+  {mechanism: "Action Point Allowance System"},
+  {mechanism: "Action / Movement Programming"}
 ])
 Ownership.create!([
   {user_id: 2, boardgame_id: 6, rating: 9, num_of_plays: 12},
