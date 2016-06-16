@@ -1,6 +1,6 @@
 $(function() {
   $(".gamesTable").tablesorter({
-    theme : 'blue',
+    theme : 'bootstrap table-striped',
     sortList: [[0,0]]
   });
 });
