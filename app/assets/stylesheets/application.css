@@ -19,6 +19,7 @@
  *= require style_light
  *= require responsive
  *= require color
+ *= require theme.blue
  *= require_tree .
  *= require_self
  */

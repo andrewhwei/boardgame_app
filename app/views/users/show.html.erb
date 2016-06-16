@@ -36,22 +36,26 @@
       </div>
     </div>
 
-    <table class="table table-striped">
-      <tr>
-        <th>Name</th>
-        <th>Developer</th>
-        <th><%= "#{@user.first_name}'s rating" %></th>
-        <th>Number of plays</th>
-      </tr>
-      
-      <% @owned_games.each do |owned_game| %>
+    <table class="gamesTable">
+      <thead>
         <tr>
-          <td><%= owned_game.boardgame.name %></td>
-          <td><%= owned_game.boardgame.developer %></td>
-          <td><%= owned_game.rating %></td>
-          <td><%= owned_game.num_of_plays %></td>
+          <th>Name</th>
+          <th>Developer</th>
+          <th><%= "#{@user.first_name}'s rating" %></th>
+          <th>Number of plays</th>
         </tr>
-      <% end %>
+      </thead>
+      
+      <tbody> 
+        <% @owned_games.each do |owned_game| %>
+          <tr>
+            <td><%= owned_game.boardgame.name %></td>
+            <td><%= owned_game.boardgame.developer %></td>
+            <td><%= owned_game.rating %></td>
+            <td><%= owned_game.num_of_plays %></td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
     
   </div>

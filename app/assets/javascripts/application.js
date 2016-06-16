@@ -22,6 +22,7 @@
 //= require jquery.jigowatt
 //= require main
 //= require jquery_ujs
+//= require jquery.tablesorter.min
 //= require angular.min
 //= require app
 //= require_tree .
