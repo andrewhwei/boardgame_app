@@ -34,8 +34,9 @@
     <%= submit_tag "Update Information" %>
 
     <% end %>
-
-    <%= link_to "Delete account", "/users/#{@user.id}", method: :delete %>
+    
+    <button><%= link_to "Delete account", "/users/#{@user.id}", method: :delete %></button>
+    <div><%= link_to "Back", "/users/#{@user.id}"%></div>
 
   </div>
 </section>

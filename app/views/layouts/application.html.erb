@@ -27,10 +27,12 @@
                     <li><%= link_to "Manage game mechanisms", "/categories" %></li>
                 <% end %>
                 <% if current_user %>
-                  <li><%= link_to "Sign out", "/users/sign_out", method: :delete %></li>
+                    <li><%= link_to "Profile", "/users/#{current_user.id}" %></li>
+                    <li><%= link_to "Edit user info", "/users/#{current_user.id}/edit" %></li>
+                    <li><%= link_to "Sign out", "/users/sign_out", method: :delete %></li>
                 <% else %>
-                  <li><%= link_to "Sign up", "/users/sign_up" %></li>
-                  <li><%= link_to "Sign in", "/users/sign_in" %></li>
+                    <li><%= link_to "Sign up", "/users/sign_up" %></li>
+                    <li><%= link_to "Sign in", "/users/sign_in" %></li>
                 <% end %>
             </ul>   
         </div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
 
   root 'users#index'
@@ -9,6 +9,16 @@ Rails.application.routes.draw do
   patch '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy'
 
+  get '/owned_games', to: 'ownerships#index'
+  post '/owned_games', to: 'ownerships#create'
+  get '/owned_games/:id/edit', to: 'ownerships#edit'
+  patch '/owned_games/:id', to: 'ownerships#update'
+  delete '/owned_games/:id', to: 'ownerships#destroy'
+
+  get '/pictures', to: 'pictures#index'
+  post '/pictures', to: 'pictures#create'
+  delete '/pictures/:id', to: 'pictures#destroy'
+  
   get '/boardgames', to: 'boardgames#index'
   get '/boardgames/new', to: 'boardgames#new', as: 'new_boardgame'
   get '/boardgames/:id', to: 'boardgames#show', as: 'boardgame'
@@ -18,16 +28,6 @@ Rails.application.routes.draw do
   delete '/boardgames/:id', to: 'boardgames#destroy'
 
   get '/categories', to: 'categories#index'
-
-  get '/pictures', to: 'pictures#index'
-  post '/pictures', to: 'pictures#create'
-  delete '/pictures/:id', to: 'pictures#destroy'
-
-  get '/owned_games', to: 'ownerships#index'
-  post '/owned_games', to: 'ownerships#create'
-  get '/owned_games/:id/edit', to: 'ownerships#edit'
-  patch '/owned_games/:id', to: 'ownerships#update'
-  delete '/owned_games/:id', to: 'ownerships#destroy'
 
 
   namespace :api do

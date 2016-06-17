@@ -1,6 +1,33 @@
 <section class="brief" id="brief">
 
   <div class="container">
+
+    <h3>Add a board game</h3>
+
+    <%= form_tag "/owned_games", method: :post do %>
+
+      <div>
+        <%= hidden_field_tag :user_id, current_user.id %>
+      </div>
+      <div>
+        <%= label_tag "Board game" %>
+        <%= collection_select :boardgame, :boardgame_id, @unowned_boardgames, :id, :name %>
+      </div>
+      <div>
+        <%= label_tag :rating %>
+        <%= text_field_tag :rating %>
+      </div>
+      <div>
+        <%= label_tag :number_of_plays %>
+        <%= text_field_tag :number_of_plays %>
+      </div>
+
+    <%= submit_tag "Add board game" %>
+
+    <% end %>
+  </div>
+
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="section-head">
@@ -36,30 +63,4 @@
     
   </div>
 
-  <div class="container">
-
-    <h3>Add a board game</h3>
-
-    <%= form_tag "/owned_games", method: :post do %>
-
-      <div>
-        <%= hidden_field_tag :user_id, current_user.id %>
-      </div>
-      <div>
-        <%= label_tag "Board game" %>
-        <%= collection_select :boardgame, :boardgame_id, @unowned_boardgames, :id, :name %>
-      </div>
-      <div>
-        <%= label_tag :rating %>
-        <%= text_field_tag :rating %>
-      </div>
-      <div>
-        <%= label_tag :number_of_plays %>
-        <%= text_field_tag :number_of_plays %>
-      </div>
-
-    <%= submit_tag "Add board game" %>
-
-    <% end %>
-  </div>
 </section>
