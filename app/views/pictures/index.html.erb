@@ -1,4 +1,4 @@
-<!-- begin screenshots section -->
+
 <section class="screenshots" id="screenshots">
   
   <div class="container">
@@ -17,12 +17,10 @@
       <div class="col-md-12">
         <div class="screens">
           <% current_user.pictures.each_with_index do |picture, index| %>
-            <!-- begin single screenshot -->
             <div class="screen">
                 <%= image_tag(picture.link) %>
                 <%= link_to "Delete this image", "/pictures/#{picture.id}", method: :delete %>
             </div>
-            <!-- end single screenshot -->
           <% end %>
         </div>
       </div>
@@ -47,4 +45,3 @@
     <% end %>
   </div>
 </section>
-<!-- end screenshots section -->

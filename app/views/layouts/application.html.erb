@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<!-- Meta Data -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Board game meetups">
@@ -16,122 +15,66 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-
-<!-- begin nav -->
-<!-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> -->
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span>Menu</span>
-            </button>
-            <!-- begin logo in navigation -->
-            <a class="navbar-brand" href="#intro">
-                <%= image_tag("logo-small.png") %>
-            </a>
-            <!-- end logo in navigation -->
-        </div>  
+        <div class="navbar-header">  
+            <%= link_to image_tag("logo-small.png"), "/users", :class => "navbar-brand" %>
+        </div>
     
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <!-- begin navigation items -->
-                <li class="current"><a href="#intro">Start</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#screenshots">Screenshots</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#extra">Extra</a></li>
-                <li><a href="#video">Video</a></li>
+                <% if current_user && current_user.admin %>
+                    <li><%= link_to "Manage board games", "/boardgames" %></li>
+                    <li><%= link_to "Manage game mechanisms", "/categories" %></li>
+                <% end %>
                 <% if current_user %>
                   <li><%= link_to "Sign out", "/users/sign_out", method: :delete %></li>
                 <% else %>
                   <li><%= link_to "Sign up", "/users/sign_up" %></li>
                   <li><%= link_to "Sign in", "/users/sign_in" %></li>
                 <% end %>
-                <!-- end navigation items -->
             </ul>   
         </div>
     </div>
-<!-- </nav> -->
-<!-- end nav -->
+
 
 <%= yield %>
 
-<!-- begin footer section -->
 <footer class="footer" id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-3">
-                <!-- begin logo footer -->
+            <div class="col-md-3">
                 <%= image_tag("Logo.png") %>
-                <!-- end logo footer -->
-                <p>
-                    Lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit. Aliquam 
-                    sem, nec iaculis nulla.
-                </p>
-                <p><small>Copyright &copy; 2014 Lamap</small></p>
             </div>
 
-            <div class="col-md-2 col-md-offset-1 col-sm-3">
-                <h4>Sample Links</h4>
+            <div class="col-md-3">
+                <h4>About this site</h4>
+                <div class="underline-small"></div>
+                <p>MeepleMeet is an online matchmaking service that allows users to store board game related information, connecting these users to one another based on their preferences!</p>
+            </div>
+
+            <div class="col-md-3">
+                <h4>Contact me</h4>
                 <div class="underline-small"></div>
                 <ul>
+                    <li>408.438.3879</li>
                     <li>
-                        <a href="#">About us</a>
-                    </li>
-                    <li>
-                        <a href="#">
-                        Jobs
-                        <span class="jobs">We're hiring!</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Plans &amp; Pricing</a>
-                    </li>
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#">Terms &amp; Condition</a>
+                        <a href="mailto:andrew.wei92@yahoo.com">andrew.wei92@yahoo.com</a>
                     </li>
                 </ul>
             </div>
 
-            <div class="col-md-2 col-md-offset-1 col-sm-3">
-                <h4>Draw us a line</h4>
-                <div class="underline-small"></div>
-                <ul>
-                    <li>Lamap</li>
-                    <li>Address</li>
-                    <li>Phonenumber</li>
-                    <li>
-                        <a href="mailto:info@yourdomain.com">info@domain.com</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-md-2 col-md-offset-1 col-sm-3">
-                <h4>Get Social</h4>
+            <div class="col-md-3">
+                <h4>Links</h4>
                 <div class="underline-small"></div>
                 <ul class="list-inline">
                     <li>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="http://www.github.com/andrewhwei"><i class="fa fa-github"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="http://www.linkedin.com/in/andrew-wei-39103686"><i class="fa fa-linkedin-square"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-vimeo-square"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-youtube"></i></a>
+                        <a href="http://www.andrewcltc.wordpress.com"><i class="fa fa-wordpress"></i></a>
                     </li>
                 </ul>
             </div>

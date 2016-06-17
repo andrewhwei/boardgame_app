@@ -1,7 +1,6 @@
 <div ng-app="app">
   <div ng-controller="boardgamesCtrl" ng-init="setup()">
   
-    <!-- begin services section -->
     <section class="services" id="services">
         <div class="container">
             <div>
@@ -23,10 +22,8 @@
                 <div ng-repeat-start="boardgame in boardgames | orderBy: 'name' |filter: nameFilter track by $index ">
                     <div class="service">
                         <div class="col-md-3">
-                            <!-- begin single service item -->
                             <h4>{{boardgame.name + " - " + boardgame.developer}}</h4>
                             <p ng-repeat="category in boardgame.categories">{{category.mechanism}}</p>
-                            <!-- end single service item -->
                         </div>
                     </div>
                 </div>
@@ -35,7 +32,6 @@
             </div>
         </div>
     </section>
-    <!-- end services section -->
 
   </div>
 </div>
