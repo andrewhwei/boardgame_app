@@ -12,7 +12,7 @@
 
   <div>
     <%= f.label "Mechanisms: " %>
-    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :mechanism) %>
+    <%= f.collection_check_boxes(:category_ids, Category.all.order('mechanism ASC'), :id, :mechanism) %>
   </div>
 
   <%= f.submit %>
