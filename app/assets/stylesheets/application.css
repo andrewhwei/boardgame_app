@@ -19,7 +19,7 @@
  *= require style_light
  *= require responsive
  *= require color
- *= require theme.bootstrap.min
+ *= require theme.bootstrap
  *= require_tree .
  *= require_self
  */

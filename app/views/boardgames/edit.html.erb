@@ -14,6 +14,10 @@
       <%= label_tag :developer %>
       <%= text_field_tag :developer, @boardgame.developer %>
     </div>
+    <div>
+      <%= label_tag "Mechanisms: " %>
+      <%= collection_check_boxes :category, :category_id, Category.all, :id, :mechanism %>
+    </div>
     
     <%= submit_tag "Submit" %>
 

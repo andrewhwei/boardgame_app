@@ -15,8 +15,8 @@
       <%= text_field_tag :developer %>
     </div>
     <div>
-      <%= label_tag "Mechanism" %>
-      <%= collection_select :category, :category_id, Category.all, :id, :mechanism %>
+      <%= label_tag "Mechanisms: " %>
+      <%= collection_check_boxes :category, :category_id, Category.all, :id, :mechanism %>
     </div>
     
     <%= submit_tag "Submit" %>
