@@ -8,6 +8,9 @@
                     <input ng-model="nameFilter">
                </label>
             </div> 
+            <div>
+                <a ng-href="/boardgames/new">Add a board game</a>
+            </div>
 
             <div class="row">
                 <div class="col-md-12">
@@ -22,7 +25,7 @@
                 <div ng-repeat-start="boardgame in boardgames | orderBy: 'name' |filter: nameFilter track by $index ">
                     <div class="service">
                         <div class="col-md-3">
-                            <h4>{{boardgame.name + " - " + boardgame.developer}}</h4>
+                            <h4><a ng-href="/boardgames/{{boardgame.id}}/edit">{{boardgame.name + " - " + boardgame.developer}}</a></h4>
                             <p ng-repeat="category in boardgame.categories">{{category.mechanism}}</p>
                         </div>
                     </div>

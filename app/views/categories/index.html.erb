@@ -12,17 +12,17 @@
         </div>
 
         <div>
-          <label>Add a category:
-            <input ng-model="newCategory"><button ng-click="addCategory(newCategory)">Add</button>
-          </label>
-        </div>
-
-        <div>
            <label>Search categories:
               <input ng-model="mechanismFilter">
            </label>
         </div> 
 
+        <div>
+          <label>Add a category:
+            <input ng-model="newCategory"><button ng-click="addCategory(newCategory)">Add</button>
+          </label>
+        </div>
+        
         <table class="table table-striped">
             <tr ng-repeat="category in categories | filter: {mechanism: mechanismFilter} | orderBy: 'mechanism' track by $index">
                 <td>{{category.mechanism}}</td>
