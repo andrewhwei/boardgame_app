@@ -6,20 +6,17 @@ class BoardgamesController < ApplicationController
   end
 
   def new
-
+    @boardgame = Boardgame.new
   end
 
   def create
-    new_boardgame = Boardgame.new(name: params[:name], developer: params[:developer])
-    if new_boardgame.save
-      new_categorizedBoardgame = CategorizedBoardgame.new(category_id: params[:category][:category_id], boardgame_id: new_boardgame.id)
-      new_categorizedBoardgame.save
-      redirect_to "/boardgames"
-    end
+    new_boardgame = Boardgame.create(checkbox_params)
+    redirect_to "/boardgames"
   end
 
   def edit
     @boardgame = Boardgame.find_by(id: params[:id])
+    #will need to find the categorized boardgames so can show what boxes are checked
   end
 
   def update
@@ -36,6 +33,11 @@ class BoardgamesController < ApplicationController
     end
     boardgame.delete
     redirect_to "/boardgames"
+  end
+
+  private
+  def checkbox_params
+    params.require(:boardgame).permit(:name, :developer, category_ids: [])
   end
 
 end

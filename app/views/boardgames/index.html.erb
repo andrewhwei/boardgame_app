@@ -20,7 +20,7 @@
             </div>
 
             <div class="row">
-                <div ng-repeat-start="boardgame in boardgames | filter: nameFilter track by $index ">
+                <div ng-repeat-start="boardgame in boardgames | orderBy: 'name' |filter: nameFilter track by $index ">
                     <div class="service">
                         <div class="col-md-3">
                             <!-- begin single service item -->

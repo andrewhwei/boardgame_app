@@ -1,0 +1,19 @@
+<%= form_for @boardgame do |f| %>
+  
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+  </div>
+
+  <div>
+    <%= f.label :developer %>
+    <%= f.text_field :developer%>
+  </div>
+
+  <div>
+    <%= f.label "Mechanisms: " %>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :mechanism) %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

@@ -1,29 +1,9 @@
-<!-- begin services section -->
 <section class="services" id="services">
   <div class="container">
 
-    <h1>Add a board game</h1>
-
-    <%= form_tag "/boardgames/#{@boardgame.id}", method: :patch do %>
-
-    <div>
-      <%= label_tag :name %>
-      <%= text_field_tag :name, @boardgame.name %>
-    </div>
-    <div>
-      <%= label_tag :developer %>
-      <%= text_field_tag :developer, @boardgame.developer %>
-    </div>
-    <div>
-      <%= label_tag "Mechanisms: " %>
-      <%= collection_check_boxes :category, :category_id, Category.all, :id, :mechanism %>
-    </div>
+    <h1>Edit <%= @boardgame.name %></h1>
+  
+    <%= render "form" %>
     
-    <%= submit_tag "Submit" %>
-
-    <% end %>
-
-    <div><%= link_to "Delete board game", "/boardgames/#{@boardgame.id}", method: :delete %></div>
   </div>
 </section>
-<!-- end services section -->
