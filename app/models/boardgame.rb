@@ -4,4 +4,5 @@ class Boardgame < ActiveRecord::Base
 
   has_many :categories, -> { order 'mechanism ASC' }, through: :categorizedBoardgames
   has_many :categorizedBoardgames
+
 end

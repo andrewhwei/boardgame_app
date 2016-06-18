@@ -23,7 +23,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <% if current_user && current_user.admin %>
-                    <li><%= link_to "Manage board games", "/boardgames" %></li>
+                    <li><%= link_to "Manage games", "/boardgames" %></li>
                     <li><%= link_to "Manage game mechanisms", "/categories" %></li>
                 <% end %>
                 <% if current_user %>
@@ -51,7 +51,7 @@
             </div>
 
             <div class="col-md-3">
-                <h4>About this site</h4>
+                <h4>About MeepleMeet</h4>
                 <div class="underline-small"></div>
                 <p>MeepleMeet is an online matchmaking service that allows users to store board game related information, connecting these users to one another based on their preferences!</p>
             </div>

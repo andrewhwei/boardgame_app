@@ -1,4 +1,5 @@
 class OwnershipsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @owned_boardgames = current_user.ownerships.joins(:boardgame).order('name')
@@ -17,6 +18,9 @@ class OwnershipsController < ApplicationController
 
   def edit
     @ownership = Ownership.find_by(id: params[:id])
+    if current_user.id != @ownership.user_id
+      redirect_to "/"
+    end
   end
 
   def update
