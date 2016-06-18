@@ -3,6 +3,24 @@
   
   <div class="container">
     
+    <div class="container">
+      <h3>Add a picture</h3>
+
+      <%= form_tag "/pictures", method: :post do %>
+      
+      <div>
+        <%= hidden_field_tag :user_id, current_user.id %>
+      </div>
+      <div>
+        <%= label_tag :link %>
+        <%= text_field_tag :link %>
+      </div>
+
+      <%= submit_tag "Add Picture" %>
+
+      <% end %>
+    </div>
+
     <div class="row">
       <div class="col-md-12">
         <div class="section-head">
@@ -27,21 +45,4 @@
     </div>
   </div>
 
-  <div class="container">
-    <h3>Add a picture</h3>
-
-    <%= form_tag "/pictures", method: :post do %>
-    
-    <div>
-      <%= hidden_field_tag :user_id, current_user.id %>
-    </div>
-    <div>
-      <%= label_tag :link %>
-      <%= text_field_tag :link %>
-    </div>
-
-    <%= submit_tag "Add Picture" %>
-
-    <% end %>
-  </div>
 </section>
