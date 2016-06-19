@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
+  before_action :authenticate_logged_on!, only: [:index]
 
   def index
-    
     @user = current_user
   end
 
@@ -21,7 +21,7 @@ class PicturesController < ApplicationController
 
   private
   def authenticate_user(user_id)
-    unless current_user && current_user.id == user_id
+    unless current_user && current_user.id.to_s == user_id.to_s
       # flash[:error] = "Please access one of your own pages"
       redirect_to "/"
     end

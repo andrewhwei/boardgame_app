@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   private
+  def authenticate_logged_on!
+    unless current_user
+      redirect_to "/"
+    end
+  end
+
+  private
   def authenticate_admin!
     unless current_user && current_user.admin
       redirect_to "/"
@@ -17,5 +24,4 @@ class ApplicationController < ActionController::Base
       redirect_to "/"
     end
   end
-  
 end
