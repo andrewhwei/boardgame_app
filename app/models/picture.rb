@@ -1,5 +1,5 @@
 class Picture < ActiveRecord::Base
   belongs_to :user
 
-  validates :link, presence: true
+  validates :link, :user_id, presence: true
 end

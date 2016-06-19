@@ -46,10 +46,10 @@ $(document).ready(function() {
 	});
 
 	/* Buttons Scroll to Div */
-	$('.navbar-brand').click(function () {
-		$.scrollTo('.intro', 1000);
-	return false;
-	});
+	// $('.navbar-brand').click(function () {
+	// 	$.scrollTo('.intro', 1000);
+	// return false;
+	// });
 
 	// Screenshot carousel
 	$(".screens").owlCarousel({
