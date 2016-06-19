@@ -97,8 +97,8 @@ button {
 input:focus,
 textarea:focus,
 select:focus {
-    border: none;
-    outline: none;
+/*    border: none;
+    outline: none;*/
 }
 
 *::-webkit-input-placeholder { color: white; }

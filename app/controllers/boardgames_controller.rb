@@ -11,7 +11,7 @@ class BoardgamesController < ApplicationController
 
   def create
     new_boardgame = Boardgame.create(checkbox_params)
-    redirect_to "/boardgames/#{new_boardgame.id}/edit"
+    redirect_to "/boardgames"
   end
 
   def edit
@@ -21,7 +21,7 @@ class BoardgamesController < ApplicationController
   def update
     boardgame = Boardgame.find_by(id: params[:id])
     boardgame.update(name: params[:name], developer: params[:developer])
-    redirect_to "/boardgames/#{boardgame.id}/edit"
+    redirect_to "/boardgames"
   end
 
   def destroy

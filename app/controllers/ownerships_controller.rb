@@ -28,7 +28,7 @@ class OwnershipsController < ApplicationController
     ownership.rating = params[:rating]
     ownership.num_of_plays = params[:number_of_plays]
     ownership.save
-    redirect_to "/owned_games/#{ownership.id}/edit"
+    redirect_to "/owned_games"
   end
 
   def destroy
