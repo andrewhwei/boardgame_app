@@ -1,5 +1,5 @@
 class OwnershipsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_logged_on!, only: [:index]
 
   def index
     @owned_boardgames = current_user.ownerships.joins(:boardgame).order('name')
@@ -12,27 +12,28 @@ class OwnershipsController < ApplicationController
 
   def create
     ownership = Ownership.new(user_id: params[:user_id], rating: params[:rating], num_of_plays: params[:number_of_plays], boardgame_id: params[:boardgame][:boardgame_id])
+    authenticate_user(ownership.user_id)
     ownership.save
     redirect_to "/owned_games"
   end
 
   def edit
     @ownership = Ownership.find_by(id: params[:id])
-    if current_user.id != @ownership.user_id
-      redirect_to "/"
-    end
+    authenticate_user(@ownership.user_id)
   end
 
   def update
     ownership = Ownership.find_by(id: params[:id])
+    authenticate_user(ownership.user_id)
     ownership.rating = params[:rating]
     ownership.num_of_plays = params[:number_of_plays]
     ownership.save
-    redirect_to "/owned_games"
+    redirect_to "/owned_games/#{ownership.id}/edit"
   end
 
   def destroy
     ownership = Ownership.find_by(id: params[:id])
+    authenticate_user(ownership.user_id)
     ownership.delete
     redirect_to "/owned_games"
   end
