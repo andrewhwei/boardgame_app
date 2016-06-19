@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602023745) do
+ActiveRecord::Schema.define(version: 20160619222704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20160602023745) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "categorized_boardgames", ["boardgame_id"], name: "index_categorized_boardgames_on_boardgame_id", using: :btree
+  add_index "categorized_boardgames", ["category_id"], name: "index_categorized_boardgames_on_category_id", using: :btree
+
   create_table "ownerships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "boardgame_id"
@@ -45,12 +48,17 @@ ActiveRecord::Schema.define(version: 20160602023745) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "ownerships", ["boardgame_id"], name: "index_ownerships_on_boardgame_id", using: :btree
+  add_index "ownerships", ["user_id"], name: "index_ownerships_on_user_id", using: :btree
+
   create_table "pictures", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "pictures", ["user_id"], name: "index_pictures_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

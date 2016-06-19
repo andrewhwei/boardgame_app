@@ -7,4 +7,12 @@ class Boardgame < ActiveRecord::Base
 
   validates :name, :developer, presence: true
   validates :name, uniqueness: true
+
+  validate :has_at_least_one_category
+
+  def has_at_least_one_category
+    if categorizedBoardgames.empty?
+      # errors.add(:teachers, "need one teacher at least")
+    end
+  end
 end

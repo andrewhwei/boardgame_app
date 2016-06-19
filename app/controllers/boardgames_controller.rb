@@ -20,7 +20,7 @@ class BoardgamesController < ApplicationController
 
   def update
     boardgame = Boardgame.find_by(id: params[:id])
-    boardgame.update(name: params[:name], developer: params[:developer])
+    boardgame.update(checkbox_params)
     redirect_to "/boardgames"
   end
 

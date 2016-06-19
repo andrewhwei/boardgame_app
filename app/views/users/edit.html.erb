@@ -35,7 +35,8 @@
 
     <% end %>
 
-    <button><%= link_to "Delete account", "/users/#{@user.id}", method: :delete %></button>
+    <div><%= link_to "Delete account", "/users/#{@user.id}", method: :delete %></div>
+    <div><%= link_to "Back to profile", "/users/#{@user.id}" %></div> 
 
   </div>
 </section>
