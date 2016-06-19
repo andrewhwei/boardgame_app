@@ -10,8 +10,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
   def authenticate_user!
-    unless current_user && current_user.id == params[:id]
+    unless current_user && current_user.id.to_s == params[:id].to_s
       # flash[:error] = "Please access one of your own pages"
       redirect_to "/"
     end
