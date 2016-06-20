@@ -4,15 +4,15 @@
 
     <h1>Edit information for <%= @ownership.boardgame.name %></h1>
 
-    <%= form_tag "/owned_games/#{@ownership.id}", method: :patch do %>
+    <%= form_tag "/owned_games/#{@ownership.id}", method: :patch, :class => "form-vertical" do %>
 
-    <div>
+    <div class="form-group">
       <%= label_tag :rating %>
-      <%= text_field_tag :rating, @ownership.rating %>
+      <%= text_field_tag :rating, @ownership.rating, class: "form-control" %>
     </div>
-    <div>
+    <div class="form-group">
       <%= label_tag :number_of_plays %>
-      <%= text_field_tag :number_of_plays, @ownership.num_of_plays %>
+      <%= text_field_tag :number_of_plays, @ownership.num_of_plays, class: "form-control" %>
     </div>
 
     <%= submit_tag "Update Information" %>

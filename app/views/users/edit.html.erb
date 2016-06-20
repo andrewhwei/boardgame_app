@@ -1,39 +1,37 @@
-
 <section class="services" id="services">
   <div class="container">
 
     <h1>Edit information</h1>
+      <%= form_tag "/users/#{@user.id}", method: :patch, :class => "form-vertical" do %>
 
-    <%= form_tag "/users/#{@user.id}", method: :patch do %>
+      <div class="form-group">
+        <%= label_tag :first_name %>
+        <%= text_field_tag :first_name, @user.first_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :last_name %>
+        <%= text_field_tag :last_name, @user.last_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, @user.email, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :phone_number %>
+        <%= text_field_tag :phone_number, @user.phone_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :location %>
+        <%= text_field_tag :location, @user.location, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :bio %>
+        <%= text_area_tag :bio, @user.bio, class: "form-control" %>
+      </div>
 
-    <div>
-      <%= label_tag :first_name %>
-      <%= text_field_tag :first_name, @user.first_name %>
-    </div>
-    <div>
-      <%= label_tag :last_name %>
-      <%= text_field_tag :last_name, @user.last_name %>
-    </div>
-    <div>
-      <%= label_tag :email %>
-      <%= text_field_tag :email, @user.email %>
-    </div>
-    <div>
-      <%= label_tag :phone_number %>
-      <%= text_field_tag :phone_number, @user.phone_number %>
-    </div>
-    <div>
-      <%= label_tag :location %>
-      <%= text_field_tag :location, @user.location %>
-    </div>
-    <div>
-      <%= label_tag :bio %>
-      <%= text_area_tag :bio, @user.bio, size: "60" %>
-    </div>
+      <%= submit_tag "Update" %>
 
-    <%= submit_tag "Update" %>
-
-    <% end %>
+      <% end %>
 
     <div><%= link_to "Delete account", "/users/#{@user.id}", method: :delete %></div>
     <div><%= link_to "Back to profile", "/users/#{@user.id}" %></div> 

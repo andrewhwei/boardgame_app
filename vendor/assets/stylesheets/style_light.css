@@ -798,3 +798,13 @@ ul.extra-features i {
     width: 350px;
     height:350px;
 }
+
+.checkbox-list input[type="checkbox"] {
+  display: inline-block;
+}
+
+.checkbox-list input[type="checkbox"] + label {
+  display: inline-block;
+  margin-left: 2%;
+  width: 30%;
+}

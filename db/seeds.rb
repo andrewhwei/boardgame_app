@@ -1,6 +1,6 @@
 User.create!([
-  {email: "admin@test.com", encrypted_password: "$2a$11$UsZtshjDHemB918DFtjrs.802udB8NO6UQRvScHmAU5AjgHWyYcGm", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 20, current_sign_in_at: "2016-06-16 01:08:25", last_sign_in_at: "2016-06-15 01:08:26", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: nil, location: nil, bio: nil, admin: true, first_name: nil, last_name: nil, api_key: "actual-api-key"},
-  {email: "user@test.com", encrypted_password: "$2a$11$SOEpVQBPEkzzCOqXLRPtxO.PEu.jpGTXXxydDI33pl2j/B9VbjUaW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 27, current_sign_in_at: "2016-06-16 01:08:40", last_sign_in_at: "2016-06-15 03:06:31", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: "4084325748", location: "13850 Saratoga Ave, Saratoga, CA", bio: "Hi! My name is John Doe. I live in the South Bay Area. I just moved into the area, and I am looking for a regular gaming group! I generally enjoy American games with a lot of conflict, but I am open to anything. ", admin: false, first_name: "Jay", last_name: "Doe", api_key: nil}
+  {email: "admin@test.com", encrypted_password: "$2a$11$UsZtshjDHemB918DFtjrs.802udB8NO6UQRvScHmAU5AjgHWyYcGm", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 49, current_sign_in_at: "2016-06-20 20:54:45", last_sign_in_at: "2016-06-20 20:36:31", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: nil, location: nil, bio: nil, admin: true, first_name: nil, last_name: nil},
+  {email: "user@test.com", encrypted_password: "$2a$11$SOEpVQBPEkzzCOqXLRPtxO.PEu.jpGTXXxydDI33pl2j/B9VbjUaW", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 58, current_sign_in_at: "2016-06-20 20:36:56", last_sign_in_at: "2016-06-20 20:33:15", current_sign_in_ip: "::1", last_sign_in_ip: "::1", phone_number: "4152173823", location: "Saratoga, CA", bio: "Hi! My name is John Doe. I live in the South Bay Area. I just moved into the area, and I am looking for a regular gaming group! I generally enjoy American games with a lot of conflict, but I am open to any type of board game!", admin: false, first_name: "Jay", last_name: "Doe"}
 ])
 Boardgame.create!([
   {name: "Agricola", developer: "Uwe Rosenberg"},
@@ -12,7 +12,9 @@ Boardgame.create!([
   {name: "BANG!", developer: "Emiliano Sciarra"},
   {name: "Blood Rage", developer: "Eric Lang"},
   {name: "The Resistance", developer: "Don Eskridge"},
-  {name: "Space Hulk: Death Angel", developer: "Corey Konieczka"}
+  {name: "Space Hulk: Death Angel", developer: "Corey Konieczka"},
+  {name: "Seasons", developer: "Régis Bonnessée"},
+  {name: "Bora Bora", developer: "Stefan Feld"}
 ])
 CategorizedBoardgame.create!([
   {category_id: 2, boardgame_id: 2},
@@ -51,7 +53,14 @@ CategorizedBoardgame.create!([
   {category_id: 23, boardgame_id: 11},
   {category_id: 22, boardgame_id: 11},
   {category_id: 8, boardgame_id: 11},
-  {category_id: 15, boardgame_id: 11}
+  {category_id: 15, boardgame_id: 11},
+  {category_id: 6, boardgame_id: 45},
+  {category_id: 8, boardgame_id: 45},
+  {category_id: 21, boardgame_id: 45},
+  {category_id: 23, boardgame_id: 45},
+  {category_id: 9, boardgame_id: 46},
+  {category_id: 13, boardgame_id: 46},
+  {category_id: 21, boardgame_id: 46}
 ])
 Category.create!([
   {mechanism: "Area control"},
@@ -78,8 +87,8 @@ Category.create!([
 ])
 Ownership.create!([
   {user_id: 2, boardgame_id: 6, rating: 9, num_of_plays: 12},
-  {user_id: 2, boardgame_id: 2, rating: 10, num_of_plays: 2},
-  {user_id: 2, boardgame_id: 10, rating: 8, num_of_plays: 3}
+  {user_id: 2, boardgame_id: 10, rating: 8, num_of_plays: 3},
+  {user_id: 2, boardgame_id: 2, rating: 10, num_of_plays: 7}
 ])
 Picture.create!([
   {user_id: 2, link: "http://orig04.deviantart.net/aded/f/2013/066/c/2/profile_picture_by_naivety_stock-d5x8lbn.jpg"},
