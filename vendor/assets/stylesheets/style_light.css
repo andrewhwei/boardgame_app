@@ -788,3 +788,13 @@ ul.extra-features i {
 .footer h4 {
     margin-bottom: 5px;
 }
+
+.logo-footer {
+    width: 225px;
+    height: 225px;
+}
+
+.logo-main {
+    width: 350px;
+    height:350px;
+}

@@ -11,6 +11,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -47,7 +48,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <%= image_tag("Logo.png") %>
+                <%= image_tag(("Logo.png"), :class => "logo-footer") %>
             </div>
 
             <div class="col-md-3">
