@@ -31,5 +31,4 @@ class Api::V1::CategoriesController < ApplicationController
       render json: {errors: category.errors.full_messages}, status: 422
     end
   end
-
 end

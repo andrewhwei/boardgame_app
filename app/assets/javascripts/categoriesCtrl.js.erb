@@ -21,6 +21,8 @@
     $http.patch("/api/v1/categories/" + category.id + ".json", editedCategory).then(function(response) {
       category.mechanism = category.update;
       category.update = null;
+    }, function(error){
+      $scope.errors = error.data.errors;
     });
   }
 
@@ -30,6 +32,8 @@
       $scope.categories.push(response.data);
       $scope.newCategory = null;
       $scope.setup();
+    }, function(error) {
+      $scope.errors = error.data.errors;
     });
   }
 

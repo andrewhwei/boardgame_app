@@ -11,6 +11,10 @@
           </div>
         </div>
 
+        <ul>
+          <li ng-repeat="error in errors">{{ error }}</li>
+        </ul>
+        
         <div>
            <label>Search categories:
               <input ng-model="mechanismFilter">
