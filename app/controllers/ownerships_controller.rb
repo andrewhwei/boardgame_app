@@ -51,5 +51,5 @@ class OwnershipsController < ApplicationController
       redirect_to "/owned_games"
     end
   end
-
+  
 end

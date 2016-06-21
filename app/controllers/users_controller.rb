@@ -27,9 +27,17 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(id: params[:id])
-    if !@user.nil?
-      @user.destroy
+    user = User.find_by(id: params[:id])
+    if !user.nil?
+      user.destroy
+      pictures = Picture.where("user_id = ?", user.id)
+      pictures.each do |picture|
+        picture.delete
+      end
+      games = Ownership.where("user_id = ?", user.id)
+      games.each do |game|
+        game.delete
+      end
       flash[:success] = "Account deleted"
       redirect_to "/users"
     else
