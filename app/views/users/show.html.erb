@@ -13,7 +13,10 @@
       </div>
       <div class="col-md-6 col-sm-12">
         <figure class="small-slider">
-          <% @user.pictures.each do |picture| %>
+          <% if @user.profile_picture %>
+            <%= image_tag(@profile_picture[0].link) %>
+          <% end %>
+          <% @user_pictures.each do |picture| %>
             <div class="item">
               <%= image_tag(picture.link) %>
             </div>

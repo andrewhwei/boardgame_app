@@ -15,11 +15,10 @@ class OwnershipsController < ApplicationController
     authenticate_user(ownership.user_id)
     if ownership.save
       flash[:success] = "Boardgame added"
-      redirect_to "/owned_games"
     else
       flash[:danger] = ownership.errors.full_messages
-      redirect_to "/owned_games"
     end
+    redirect_to "/owned_games"
   end
 
   def edit
@@ -45,11 +44,10 @@ class OwnershipsController < ApplicationController
     if !ownership.nil?
       ownership.delete
       flash[:success] = "Boardgame deleted"
-      redirect_to "/owned_games"
     else
       flash[:danger] = "Boardgame not found"
-      redirect_to "/owned_games"
     end
+    redirect_to "/owned_games"
   end
   
 end

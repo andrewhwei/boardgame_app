@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @owned_games = @user.ownerships.joins(:boardgame).order('name')
     @full_name = "#{@user.first_name} #{@user.last_name}"
+    @profile_picture = Picture.where("id = ?", @user.profile_picture)
+    @user_pictures = @user.pictures.where("id != ?", @user.profile_picture)
   end
 
   def edit
@@ -39,11 +41,10 @@ class UsersController < ApplicationController
         game.delete
       end
       flash[:success] = "Account deleted"
-      redirect_to "/users"
     else
       flash[:danger] = "User not found"
-      redirect_to "/users"
     end
+    redirect_to "/users"
   end
 
 end

@@ -37,6 +37,15 @@
           <% @user.pictures.each_with_index do |picture, index| %>
             <div class="screen">
                 <%= image_tag(picture.link) %>
+                <%= form_tag "/pictures/#{picture.id}", method: :patch do %>
+      
+                  <div>
+                    <%= hidden_field_tag :picture_id, picture.id %>
+                  </div>
+
+                  <%= submit_tag "Set as profile picture" %>
+
+                <% end %>
                 <%= link_to "Delete this image", "/pictures/#{picture.id}", method: :delete %>
             </div>
           <% end %>

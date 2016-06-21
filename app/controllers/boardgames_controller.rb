@@ -44,11 +44,10 @@ class BoardgamesController < ApplicationController
       end
       boardgame.delete
       flash[:success] = "Boardgame deleted"
-      redirect_to "/boardgames"
     else
       flash[:danger] = "Boardgame not found"
-      redirect_to "/boardgames"
     end
+    redirect_to "/boardgames"
   end
 
   private

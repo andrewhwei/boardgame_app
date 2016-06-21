@@ -789,14 +789,19 @@ ul.extra-features i {
     margin-bottom: 5px;
 }
 
+.logo-header {
+    width: 200px;
+    height: auto;
+}
+
 .logo-footer {
     width: 225px;
-    height: 225px;
+    height: auto;
 }
 
 .logo-main {
     width: 350px;
-    height:350px;
+    height: auto;
 }
 
 .checkbox-list input[type="checkbox"] {

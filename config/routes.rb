@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/pictures', to: 'pictures#index'
   post '/pictures', to: 'pictures#create'
+  patch '/pictures/:id', to: 'pictures#update'
   delete '/pictures/:id', to: 'pictures#destroy'
   
   get '/boardgames', to: 'boardgames#index'
