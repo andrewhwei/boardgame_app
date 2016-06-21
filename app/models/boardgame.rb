@@ -12,7 +12,7 @@ class Boardgame < ActiveRecord::Base
 
   def has_at_least_one_category
     if categorizedBoardgames.empty?
-      # errors.add(:teachers, "need one teacher at least")
+      errors.add(:boardgame, "must have at least one category")
     end
   end
 end

@@ -13,8 +13,13 @@ class OwnershipsController < ApplicationController
   def create
     ownership = Ownership.new(user_id: params[:user_id], rating: params[:rating], num_of_plays: params[:number_of_plays], boardgame_id: params[:boardgame][:boardgame_id])
     authenticate_user(ownership.user_id)
-    ownership.save
-    redirect_to "/owned_games"
+    if ownership.save
+      flash[:success] = "Boardgame added"
+      redirect_to "/owned_games"
+    else
+      flash[:danger] = ownership.errors.full_messages
+      redirect_to "/owned_games"
+    end
   end
 
   def edit
@@ -23,19 +28,28 @@ class OwnershipsController < ApplicationController
   end
 
   def update
-    ownership = Ownership.find_by(id: params[:id])
-    authenticate_user(ownership.user_id)
-    ownership.rating = params[:rating]
-    ownership.num_of_plays = params[:number_of_plays]
-    ownership.save
-    redirect_to "/owned_games"
+    @ownership = Ownership.find_by(id: params[:id])
+    authenticate_user(@ownership.user_id)
+    if @ownership.update(rating: params[:rating], num_of_plays: params[:number_of_plays])
+      flash[:success] = "Boardgame updated"
+      redirect_to "/owned_games"
+    else
+      flash[:danger] = @ownership.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
     ownership = Ownership.find_by(id: params[:id])
     authenticate_user(ownership.user_id)
-    ownership.delete
-    redirect_to "/owned_games"
+    if !ownership.nil?
+      ownership.delete
+      flash[:success] = "Boardgame deleted"
+      redirect_to "/owned_games"
+    else
+      flash[:danger] = "Boardgame not found"
+      redirect_to "/owned_games"
+    end
   end
 
 end

@@ -10,8 +10,14 @@ class BoardgamesController < ApplicationController
   end
 
   def create
-    new_boardgame = Boardgame.create(checkbox_params)
-    redirect_to "/boardgames"
+    @boardgame = Boardgame.new(checkbox_params)
+    if @boardgame.save
+      flash[:success] = "Boardgame added"
+      redirect_to "/boardgames"
+    else
+      flash[:danger] = @boardgame.errors.full_messages
+      render :new
+    end
   end
 
   def edit
@@ -19,19 +25,30 @@ class BoardgamesController < ApplicationController
   end
 
   def update
-    boardgame = Boardgame.find_by(id: params[:id])
-    boardgame.update(checkbox_params)
-    redirect_to "/boardgames"
+    @boardgame = Boardgame.find_by(id: params[:id])
+    if @boardgame.update(checkbox_params)
+      flash[:success] = "Boardgame added"
+      redirect_to "/boardgames"
+    else
+      flash[:danger] = @boardgame.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
     boardgame = Boardgame.find_by(id: params[:id])
-    categories = CategorizedBoardgame.where("boardgame_id = ?", boardgame.id)
-    categories.each do |category|
-      category.delete
+    if !boardgame.nil?
+      categories = CategorizedBoardgame.where("boardgame_id = ?", boardgame.id)
+      categories.each do |category|
+        category.delete
+      end
+      boardgame.delete
+      flash[:success] = "Boardgame deleted"
+      redirect_to "/boardgames"
+    else
+      flash[:danger] = "Boardgame not found"
+      redirect_to "/boardgames"
     end
-    boardgame.delete
-    redirect_to "/boardgames"
   end
 
   private

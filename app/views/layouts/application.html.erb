@@ -18,7 +18,7 @@
 
     <div class="container">
         <div class="navbar-header">  
-            <!-- <a class="navbar-brand" href="/users"><%= image_tag("logo-small.png") %></a> -->
+            <a class="navbar-brand" href="/users"><%= image_tag("logo-small.png") %></a>
         </div>
     
         <div class="navbar-collapse collapse">
@@ -39,6 +39,20 @@
                 <% end %>
             </ul>   
         </div>
+
+        <% flash.each do |name, messages| %>
+            <div class="alert alert-<%= name %> alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <% if messages.kind_of?(Array) %>
+                    <ul>
+                        <% messages.each do |message| %>
+                            <li> <%= message %> </li>
+                        <% end %>
+                    </ul>
+                <% else %>
+                    <%= messages %>
+                <% end %>
+            </div>
+        <% end %>
     </div>
 
 
