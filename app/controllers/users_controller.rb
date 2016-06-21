@@ -17,14 +17,25 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], location: params[:location], bio: params[:bio])
+    if @user.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], location: params[:location], bio: params[:bio])
+    flash[:success] = "User info updated"
     redirect_to "/users/#{@user.id}"
+    else
+      flash[:danger] = @user.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
     @user = User.find_by(id: params[:id])
-    @user.destroy
-    redirect_to "/users"
+    if !@user.nil?
+      @user.destroy
+      flash[:success] = "Account deleted"
+      redirect_to "/users"
+    else
+      flash[:danger] = "User not found"
+      redirect_to "/users"
+    end
   end
 
 end
