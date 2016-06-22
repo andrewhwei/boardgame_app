@@ -55,10 +55,10 @@
       <tbody> 
         <% @owned_games.each do |owned_game| %>
           <tr>
-            <td><%= owned_game.boardgame.name %></td>
-            <td><%= owned_game.boardgame.developer %></td>
-            <td><%= owned_game.rating %></td>
-            <td><%= owned_game.num_of_plays %></td>
+            <td class="gamesTableTd"><%= owned_game.boardgame.name %></td>
+            <td class="gamesTableTd"><%= owned_game.boardgame.developer %></td>
+            <td class="gamesTableTd"><%= owned_game.rating %></td>
+            <td class="gamesTableTd"><%= owned_game.num_of_plays %></td>
           </tr>
         <% end %>
       </tbody>

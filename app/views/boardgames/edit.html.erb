@@ -6,7 +6,7 @@
   
     <%= render "form" %>
     
-    <div><%= link_to "Delete board game", "/boardgames/#{@boardgame.id}", method: :delete %></div>
-    <div><%= link_to "Back", "/boardgames"%></div>
+    <div><i class='fa fa-close'></i> <%= link_to "Delete board game", "/boardgames/#{@boardgame.id}", method: :delete %></div>
+    <div><i class='fa fa-arrow-left'></i> <%= link_to "Back", "/boardgames"%></div>
   </div>
 </section>

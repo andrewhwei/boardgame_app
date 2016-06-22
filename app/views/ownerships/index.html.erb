@@ -18,7 +18,7 @@
           </div>
           <div class="form-group">
             <%= label_tag "Board game" %>
-            <%= collection_select :boardgame, :boardgame_id, @unowned_boardgames, :id, :name %>
+            <%= collection_select(:boardgame, :boardgame_id, @unowned_boardgames, :id, :name, {}, {:class => "ownership_checkbox"}) %>
           </div>
           <div class="form-group">
             <%= label_tag :rating %>
@@ -49,11 +49,11 @@
       <tbody>
         <% @owned_boardgames.each do |owned_game| %>
           <tr>
-            <td><%= owned_game.boardgame.name %></td>
-            <td><%= owned_game.boardgame.developer %></td>
-            <td><%= owned_game.rating %></td>
-            <td><%= owned_game.num_of_plays %></td>
-            <td><%= link_to "Edit this board game", "/owned_games/#{owned_game.id}/edit", method: :get %><br><%= link_to "Delete this board game", "/owned_games/#{owned_game.id}", method: :delete %></td>
+            <td class="gamesTableTd"><%= owned_game.boardgame.name %></td>
+            <td class="gamesTableTd"><%= owned_game.boardgame.developer %></td>
+            <td class="gamesTableTd"><%= owned_game.rating %></td>
+            <td class="gamesTableTd"><%= owned_game.num_of_plays %></td>
+            <td class="gamesTableTd"><i class='fa fa-edit'></i> <%= link_to "Edit this board game", "/owned_games/#{owned_game.id}/edit", method: :get %><br><i class='fa fa-close'></i> <%= link_to "Delete this board game", "/owned_games/#{owned_game.id}", method: :delete %></td>
           </tr>
         <% end %>
       </tbody>

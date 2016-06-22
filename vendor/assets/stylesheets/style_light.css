@@ -261,7 +261,7 @@ h4 {
 
     .underline-xlong {
         display: inline-block;
-        width: 200%;
+        width: 205%;
         height: 1px;
         margin-top: 21px;
     }
@@ -863,7 +863,7 @@ font-size: 17.5px !important;
 .col-md-6-right-down {
     text-align:right;
     margin-top: 2%;
-    margin-right: 4%;
+    margin-right: 1.5%;
 }
 
 .alert-angular-danger {
@@ -877,11 +877,23 @@ font-size: 17.5px !important;
 }
 
 .ownership-form {
-    margin-right: 4%;
+    margin-right: 1.5%;
     margin-top: -6%;
 }
 
 .search_bar {
     margin-bottom: 3%;
     margin-top: 2%;
+}
+
+.logo_text {
+    margin-top:-10%;
+}
+
+.ownership_checkbox {
+    width: 15%;
+}
+
+.gamesTableTd {
+    padding-left: 1%;
 }

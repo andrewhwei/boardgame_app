@@ -44,7 +44,7 @@
                   <%= submit_tag "Set as profile picture" %>
 
                 <% end %>
-                <%= link_to "Delete this image", "/pictures/#{picture.id}", method: :delete %>
+                <i class='fa fa-close'></i> <%= link_to "Delete this image", "/pictures/#{picture.id}", method: :delete %>
             </div>
           <% end %>
         </div>
