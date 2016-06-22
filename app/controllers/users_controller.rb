@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         elsif news.ownerships.last.rating == 10
           @news_feed[news.id] = "#{news.first_name} loved #{news.ownerships.last.boardgame.name} and gave it a #{news.ownerships.last.rating}!"
         else
-          @news_feed[news.id] = "#{news.first_name} recently played #{news.ownerships.last.boardgame.name} and gave it a #{news.ownerships.last.rating} out of 10."
+          @news_feed[news.id] = "#{news.first_name} recently played #{news.ownerships.last.boardgame.name} and rated it a #{news.ownerships.last.rating} out of 10."
         end
       end
     end
