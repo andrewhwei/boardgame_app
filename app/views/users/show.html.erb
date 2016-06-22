@@ -36,7 +36,7 @@
         <figure class="small-slider">
           <% if @user.profile_picture %>
             <div class="item style_image_crop">
-              <%= image_tag(@profile_picture[0].link) %>
+              <%= image_tag @profile_picture[0].link %>
             </div>
           <% end %>
           <% @user_pictures.each do |picture| %>
