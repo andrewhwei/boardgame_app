@@ -34,8 +34,16 @@
 
       <% end %>
 
-    <div><%= link_to "Delete account", "/users/#{@user.id}", method: :delete %></div>
-    <div><%= link_to "Back to profile", "/users/#{@user.id}" %></div> 
+    <div>
+      <%= link_to "/users/#{@user.id}", method: :delete do %>
+        <i class="fa fa-close"></i> Delete account
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "/users/#{@user.id}" do %>
+        <i class='fa fa-arrow-left'></i> Back to profile
+      <% end %>    
+    </div> 
 
   </div>
 </section>

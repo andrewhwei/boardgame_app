@@ -10,7 +10,7 @@
                         <span class="underline underline-xlong"></span>
                     </div>
                 </div>
-                <div class="col-md-6-right-down">
+                <div ng-if="<%= current_user.admin %>" class="col-md-6-right-down">
                     <a ng-href="/boardgames/new"><i class="fa fa-plus-square-o"></i> Add a board game</a>
                 </div>
             </div>
@@ -24,7 +24,8 @@
                 <div ng-repeat-start="boardgame in boardgames | orderBy: 'name' |filter: nameFilter track by $index ">
                     <div class="service">
                         <div class="col-md-3">
-                            <h4><a ng-href="/boardgames/{{boardgame.id}}/edit">{{boardgame.name + " - " + boardgame.developer}}</a></h4>
+                            <h4 ng-if="<%= current_user.admin %>"><a ng-href="/boardgames/{{boardgame.id}}/edit">{{boardgame.name + " - " + boardgame.developer}}</a></h4>
+                            <h4 ng-if="<%= !current_user.admin %>">{{boardgame.name + " - " + boardgame.developer}}</h4>
                             <p ng-repeat="category in boardgame.categories">{{category.mechanism}}</p>
                         </div>
                     </div>

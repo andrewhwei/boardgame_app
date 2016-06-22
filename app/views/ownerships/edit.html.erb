@@ -20,6 +20,10 @@
 
     <% end %>
 
-    <div><%= link_to "Back", "/owned_games"%></div>
+    <div>
+      <%= link_to "/owned_games" do %>
+        <i class="fa fa-arrow-left"></i> Back
+      <% end %>  
+    </div>
   </div>
 </section>

@@ -24,18 +24,61 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <% if current_user && current_user.admin %>
-                    <li><%= link_to "Manage games", "/boardgames" %></li>
-                    <li><%= link_to "Manage game mechanisms", "/categories" %></li>
+                    <li>
+                        <%= link_to "/boardgames" do %>
+                            <i class="fa fa-map-o"></i> Manage games
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to "/categories" do %>
+                            <i class="fa fa-gear"></i> Manage game mechanisms
+                        <% end %>    
+                    </li>
+                <% end %>
+                <% if current_user && !current_user.admin %>
+                    <li>
+                        <%= link_to "/boardgames" do %>
+                            <i class="fa fa-map-o"></i> Board game index
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to "/users/#{current_user.id}" do %>
+                            <i class="fa fa-user"></i> Profile
+                        <% end %>   
+                    </li>
+                    <li>
+                        <%= link_to "/users/#{current_user.id}/edit" do %>
+                            <i class="fa fa-edit"></i> Edit user info
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to "/owned_games" do %>
+                            <i class="fa fa-list"></i> Owned games
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to "/pictures" do %>
+                            <i class="fa fa-photo"></i> User pictures
+                        <% end %>
+                    </li>
                 <% end %>
                 <% if current_user %>
-                    <li><%= link_to "Profile", "/users/#{current_user.id}" %></li>
-                    <li><%= link_to "Edit user info", "/users/#{current_user.id}/edit" %></li>
-                    <li><%= link_to "Owned games", "/owned_games" %></li>
-                    <li><%= link_to "User pictures", "/pictures" %></li>
-                    <li><%= link_to "Sign out", "/users/sign_out", method: :delete %></li>
+                    <li>
+                        <%= link_to "/users/sign_out", method: :delete do %>
+                            <i class="fa fa-sign-out"></i> Sign out
+                        <% end %>
+                    </li>
                 <% else %>
-                    <li><%= link_to "Sign up", "/users/sign_up" %></li>
-                    <li><%= link_to "Sign in", "/users/sign_in" %></li>
+                    <li>
+                        <%= link_to "/users/sign_up" do %>
+                            <i class="fa fa-pencil-square-o"></i> Sign up
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to "/users/sign_in" do %>
+                            <i class="fa fa-sign-in"></i> Sign in
+                        <% end %>
+                    </li>
                 <% end %>
             </ul>   
         </div>

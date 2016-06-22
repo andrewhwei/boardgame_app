@@ -5,6 +5,10 @@
     <span class="underline underline-long"></span>
 
     <%= render "form" %>
-    <div><i class='fa fa-arrow-left'></i> <%= link_to "Back", "/boardgames"%></div>
+    <div>
+      <%= link_to "/boardgames" do %>
+        <i class='fa fa-arrow-left'></i> Back
+      <% end %>
+    </div>
   </div>
 </section>
