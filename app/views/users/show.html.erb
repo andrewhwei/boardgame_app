@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="section-head-left">
+        <div class="section-head-left-minus">
           <h1><%= @full_name %></h1>
           <span class="underline underline-long"></span>
         </div>
@@ -20,10 +20,12 @@
       <div class="col-md-6">
         <figure class="small-slider">
           <% if @user.profile_picture %>
-            <%= image_tag(@profile_picture[0].link) %>
+            <div class="item style_image_crop">
+              <%= image_tag(@profile_picture[0].link) %>
+            </div>
           <% end %>
           <% @user_pictures.each do |picture| %>
-            <div class="item">
+            <div class="item style_image_crop">
               <%= image_tag(picture.link) %>
             </div>
           <% end %>

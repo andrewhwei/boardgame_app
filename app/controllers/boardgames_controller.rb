@@ -27,7 +27,7 @@ class BoardgamesController < ApplicationController
   def update
     @boardgame = Boardgame.find_by(id: params[:id])
     if @boardgame.update(checkbox_params)
-      flash[:success] = "Boardgame added"
+      flash[:success] = "Boardgame updated"
       redirect_to "/boardgames"
     else
       flash[:danger] = @boardgame.errors.full_messages

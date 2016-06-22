@@ -302,8 +302,14 @@ section {
 }
 
     .section-head-left-down {
-        margin-top:50px;
+        margin-top: 50px;
     }
+
+.section-head-left-minus {
+    font-size: 18px;
+    text-align: left;
+    margin-bottom: 3%;
+}
 
 .section-head p {
     margin-bottom: 0px;
@@ -855,6 +861,20 @@ font-size: 17.5px !important;
     max-width: 125px;
     height: auto;
 }
+
+.style_image_crop { 
+    width: 255px;
+    height: 451px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .style_image_crop img { 
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,0)
+    }
 
 .col-md-6-right {
     text-align:right;
