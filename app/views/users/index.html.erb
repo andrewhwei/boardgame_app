@@ -51,70 +51,18 @@
       
       <div class="col-md-12">
         <div class="screens">
-          <div class="screen">
-            <a href="images/screen1.png" data-lightbox-gallery="screens">
-              <%= image_tag "screen1.png" %>
-              <span class="hover-screen">
-                <i class="fa fa-search"></i>
-              </span>
-            </a>
-          </div>
-          <div class="screen">
-            <a href="images/screen2.png" data-lightbox-gallery="screens">
-              <%= image_tag "screen2.png" %>
-              <span class="hover-screen">
-                <i class="fa fa-search"></i>
-              </span>
-            </a>
-          </div>
-          <div class="screen">
-            <a href="images/screen3.png" data-lightbox-gallery="screens">
-              <%= image_tag "screen3.png" %>
-              <span class="hover-screen">
-                <i class="fa fa-search"></i>
-              </span>
-            </a>
-          </div>
-          <div class="screen">
-            <a href="images/screen4.png" data-lightbox-gallery="screens">
-              <%= image_tag "screen4.png" %>
-              <span class="hover-screen">
-                <i class="fa fa-search"></i>
-              </span>
-            </a>
-          </div>
-          <div class="screen">
-            <a href="images/screen1.png" data-lightbox-gallery="screens">
-              <%= image_tag "screen1.png" %>
-              <span class="hover-screen">
-                <i class="fa fa-search"></i>
-              </span>
-            </a>
-          </div>
-          <div class="screen">
-            <a href="images/screen2.png" data-lightbox-gallery="screens">
-              <%= image_tag "screen2.png" %>
-              <span class="hover-screen">
-                <i class="fa fa-search"></i>
-              </span>
-            </a>
-          </div>
-          <div class="screen">
-            <a href="images/screen3.png" data-lightbox-gallery="screens">
-              <%= image_tag "screen3.png" %>
-              <span class="hover-screen">
-                <i class="fa fa-search"></i>
-              </span>
-            </a>
-          </div>
-          <div class="screen">
-            <a href="images/screen4.png" data-lightbox-gallery="screens">
-              <%= image_tag "screen4.png" %>
-              <span class="hover-screen">
-                <i class="fa fa-search"></i>
-              </span>
-            </a>
-          </div>
+          <% @random_users.each do |user| %>
+            <div class="screen">
+              <%= link_to "/users/#{user.id}" do %>
+                <div class="style_image_crop">
+                  <%= image_tag "#{@pictures.where('id = ?', user.profile_picture)[0].link}" %>
+                </div>
+                <span class="hover-screen">
+                  <i class="fa fa-search"></i>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

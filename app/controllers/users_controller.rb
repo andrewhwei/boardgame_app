@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @users = User.all
+    all_users = User.where("admin != ?", true).shuffle
+    @random_users = []
+    8.times do |n|
+      @random_users.push(all_users[n])
+    end
+    @pictures = Picture.all
   end
 
   def show
