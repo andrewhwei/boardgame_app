@@ -862,7 +862,8 @@ font-size: 17.5px !important;
 
 .col-md-6-right-down {
     text-align:right;
-    margin-top: 20px;
+    margin-top: 2%;
+    margin-right: 4%;
 }
 
 .alert-angular-danger {
@@ -878,4 +879,9 @@ font-size: 17.5px !important;
 .ownership-form {
     margin-right: 4%;
     margin-top: -6%;
+}
+
+.search_bar {
+    margin-bottom: 3%;
+    margin-top: 2%;
 }
