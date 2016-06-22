@@ -2,7 +2,7 @@
 <section class="services" id="services">
   <div class="container">
 
-    <h1>Edit information for <%= @ownership.boardgame.name %></h1>
+    <h1>Edit Information for <%= @ownership.boardgame.name %></h1>
     <span class="underline underline-long"></span>
 
     <%= form_tag "/owned_games/#{@ownership.id}", method: :patch, :class => "form-vertical" do %>

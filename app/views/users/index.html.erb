@@ -48,7 +48,6 @@
     </div>
 
     <div class="row">
-      
       <div class="col-md-12">
         <div class="screens">
           <% @random_users.each do |user| %>
@@ -67,4 +66,29 @@
       </div>
     </div>
   </div>
+  <% if current_user && !current_user.followees.empty? %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-head-left-login section-head-top">
+            <h1>Activity Feed</h1>
+            <span class="underline underline-long"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 newsFeed-grid">
+          <ul>
+            <% @news_feed.each do |news| %>
+              <li class="newsFeed">
+                <%= link_to "#{news[1]}", "/users/#{news[0]}" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
 </section>
