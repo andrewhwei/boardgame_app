@@ -3,23 +3,22 @@
   
     <section class="services" id="services">
         <div class="container">
-            <div>
-               <label>Search board games:
-                    <input ng-model="nameFilter">
-               </label>
-            </div> 
-            <div>
-                <a ng-href="/boardgames/new">Add a board game</a>
-            </div>
-
             <div class="row">
-                <div class="col-md-12">
-                    <div class="section-head">
+                <div class="col-md-6">
+                    <div class="section-head-left">
                         <h1>Board Game Index</h1>
-                        <span class="underline"></span>
+                        <span class="underline underline-xlong"></span>
                     </div>
                 </div>
+                <div class="col-md-6-right-down">
+                    <a ng-href="/boardgames/new">Add a board game</a>
+                </div>
             </div>
+            <div class="col-md-12">
+                <label>Search board games:
+                    <input ng-model="nameFilter">
+                </label>
+            </div> 
 
             <div class="row">
                 <div ng-repeat-start="boardgame in boardgames | orderBy: 'name' |filter: nameFilter track by $index ">

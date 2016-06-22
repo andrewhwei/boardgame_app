@@ -1,17 +1,23 @@
 <section class="brief" id="brief">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-sm-12">
-        <div class="brief-content">
+      <div class="col-md-12">
+        <div class="section-head-left">
           <h1><%= @full_name %></h1>
-          <div class="underline"></div>
+          <span class="underline underline-long"></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="brief-content">
           <p><%= @user.email %></p>
           <p><%= @user.phone_number %></p>
           <p><%= @user.location %></p>
           <p><%= @user.bio %></p>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12">
+      <div class="col-md-6">
         <figure class="small-slider">
           <% if @user.profile_picture %>
             <%= image_tag(@profile_picture[0].link) %>
@@ -29,9 +35,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="section-head">
+        <div class="section-head-left">
           <h3>Owned Board Games</h1>
-          <span class="underline"></span>
+          <span class="underline underline-long"></span>
         </div>
       </div>
     </div>

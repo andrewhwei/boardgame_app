@@ -1,39 +1,37 @@
 <section class="brief" id="brief">
 
   <div class="container">
-
-    <h3>Add a board game</h3>
-
-    <%= form_tag "/owned_games", method: :post do %>
-
-      <div>
-        <%= hidden_field_tag :user_id, current_user.id %>
-      </div>
-      <div>
-        <%= label_tag "Board game" %>
-        <%= collection_select :boardgame, :boardgame_id, @unowned_boardgames, :id, :name %>
-      </div>
-      <div>
-        <%= label_tag :rating %>
-        <%= text_field_tag :rating %>
-      </div>
-      <div>
-        <%= label_tag :number_of_plays %>
-        <%= text_field_tag :number_of_plays %>
-      </div>
-
-    <%= submit_tag "Add board game" %>
-
-    <% end %>
-  </div>
-
-  <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <div class="section-head">
+      <div class="col-md-6">
+        <div class="section-head-left section-head-left-down">
           <h1><%= "#{current_user.first_name}'s Board Games" %></h1>
-          <span class="underline"></span>
+          <span class="underline underline-xlong"></span>
         </div>
+      </div>
+
+      <div class="col-md-6-right ownership-form">
+
+        <%= form_tag "/owned_games", method: :post, :class => "form-vertical" do %>
+
+          <div class="form-group">
+            <%= hidden_field_tag :user_id, current_user.id %>
+          </div>
+          <div class="form-group">
+            <%= label_tag "Board game" %>
+            <%= collection_select :boardgame, :boardgame_id, @unowned_boardgames, :id, :name %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :rating %>
+            <%= text_field_tag :rating %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :number_of_plays %>
+            <%= text_field_tag :number_of_plays %>
+          </div>
+
+        <%= submit_tag "Add board game" %>
+
+        <% end %>
       </div>
     </div>
 

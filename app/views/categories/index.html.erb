@@ -1,37 +1,38 @@
 <div ng-app="app">
   <div ng-controller="categoriesCtrl" ng-init="setup()">
 
-    <div ng-if="errors" class="alert alert-danger alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div ng-if="errors" class="alert alert-danger alert-dismissable alert-angular-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <ul>
         <li ng-repeat="error in errors">{{ error }}</li>
       </ul>
     </div>
 
-    <div ng-if="message" class="alert alert-success alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div ng-if="message" class="alert alert-success alert-dismissable alert-angular-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <p>{{ message }}</p>
     </div>
-      
+
+  <section class="services" id="services"> 
     <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <div class="section-head">
+          <div class="col-md-6">
+            <div class="section-head-left">
               <h1>Categories</h1>
-              <span class="underline"></span>
+              <span class="underline underline-xlong"></span>
             </div>
+          </div>
+
+          <div class="col-md-6-right-down">
+            <label>Add a category:
+              <input ng-model="newCategory"><button ng-click="addCategory(newCategory)">Add</button>
+            </label>
           </div>
         </div>
 
-        <div>
-           <label>Search categories:
-              <input ng-model="mechanismFilter">
-           </label>
-        </div>
-
-        <div>
-          <label>Add a category:
-            <input ng-model="newCategory"><button ng-click="addCategory(newCategory)">Add</button>
-          </label>
-        </div>
+          <div class="col-md-12">
+             <label>Search categories:
+                <input ng-model="mechanismFilter">
+             </label>
+          </div>
         
         <table class="table table-striped">
             <tr ng-repeat="category in categories | filter: {mechanism: mechanismFilter} | orderBy: 'mechanism' track by $index">
@@ -41,5 +42,6 @@
             </tr>
         </table>
     </div>
+    </section>
   </div>
 </div>
