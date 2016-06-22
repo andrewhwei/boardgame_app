@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   patch '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy'
 
+  get '/follows', to: 'follows#index'
+  post '/follows', to: 'follows#create'
+  delete '/follows/:id', to: 'follows#destroy'
+
   get '/owned_games', to: 'ownerships#index'
   post '/owned_games', to: 'ownerships#create'
   get '/owned_games/:id/edit', to: 'ownerships#edit'

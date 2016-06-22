@@ -33,7 +33,11 @@
       <%= submit_tag "Update" %>
 
       <% end %>
-
+    <div>
+      <%= link_to "/pictures" do %>
+          <i class="fa fa-photo"></i> Your pictures
+      <% end %>
+    </div>
     <div>
       <%= link_to "/users/#{@user.id}", method: :delete do %>
         <i class="fa fa-close"></i> Delete account

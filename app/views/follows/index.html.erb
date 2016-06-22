@@ -1,0 +1,35 @@
+<section class="brief" id="brief">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-head-left-minus section-head-left-down">
+          <h1><%= "Users you follow" %></h1>
+          <span class="underline underline-long"></span>
+        </div>
+      </div>
+    </div>
+
+    <table class="gamesTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @followees.each do |followee| %>
+          <tr>
+            <td class="gamesTableTd"><%= "#{followee.first_name} #{followee.last_name}" %></td>
+            <td class="gamesTableTd"><%= followee.location %></td>
+            <td class="gamesTableTd"><%= link_to "See #{followee.first_name}'s profile", "/users/#{followee.id}" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>
+
+</section>

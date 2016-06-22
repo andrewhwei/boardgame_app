@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621183345) do
+ActiveRecord::Schema.define(version: 20160622174015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 20160621183345) do
 
   add_index "categorized_boardgames", ["boardgame_id"], name: "index_categorized_boardgames_on_boardgame_id", using: :btree
   add_index "categorized_boardgames", ["category_id"], name: "index_categorized_boardgames_on_category_id", using: :btree
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followee_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "follows", ["followee_id"], name: "index_follows_on_followee_id", using: :btree
+  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
 
   create_table "ownerships", force: :cascade do |t|
     t.integer  "user_id"

@@ -47,6 +47,11 @@
                         <% end %>   
                     </li>
                     <li>
+                        <%= link_to "/follows" do %>
+                            <i class="fa fa-users"></i> Follows
+                        <% end %>
+                    </li>
+                    <li>
                         <%= link_to "/users/#{current_user.id}/edit" do %>
                             <i class="fa fa-edit"></i> Edit user info
                         <% end %>
@@ -54,11 +59,6 @@
                     <li>
                         <%= link_to "/owned_games" do %>
                             <i class="fa fa-list"></i> Owned games
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to "/pictures" do %>
-                            <i class="fa fa-photo"></i> User pictures
                         <% end %>
                     </li>
                 <% end %>

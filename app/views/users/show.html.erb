@@ -1,11 +1,26 @@
 <section class="brief" id="brief">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div class="section-head-left-minus">
           <h1><%= @full_name %></h1>
-          <span class="underline underline-long"></span>
+          <span class="underline underline-xlong"></span>
         </div>
+      </div>
+      <div class="col-md-6-right-down">
+        <% if current_user && current_user.id != @user.id %>
+          <% if !current_user.followees.where("followee_id = ?", @user.id)[0].nil? %>
+            <%= form_tag "/follows/#{@user.id}", method: :delete do %>
+              <div><%= hidden_field_tag :user_id, @user.id %></div>
+              <%= submit_tag "Unfollow this user" %>
+            <% end %>
+          <% else %>
+            <%= form_tag "/follows", method: :post do %>
+              <div><%= hidden_field_tag :user_id, @user.id %></div>
+              <%= submit_tag "Follow this user" %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="row">
