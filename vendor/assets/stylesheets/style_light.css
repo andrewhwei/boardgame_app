@@ -290,8 +290,9 @@ section {
     margin-bottom: 70px;
 }
     
-    .section-head-top {
-        margin-top:3%;
+    .section-head-newsfeed {
+        margin-top: 3%;
+        margin-bottom: 3%;
     }
 
 .section-head-left {
@@ -920,14 +921,4 @@ font-size: 17.5px !important;
 
 .gamesTableTd {
     padding-left: 1%;
-}
-
-.newsFeed {
-    margin-top: 2%;
-    margin-bottom: 2%;
-}
-
-.newsFeed-grid {
-    margin-top: 3%;
-    margin-left: 3%;
 }

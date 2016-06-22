@@ -70,7 +70,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="section-head-left-login section-head-top">
+          <div class="section-head-left-login section-head-newsfeed">
             <h1>Activity Feed</h1>
             <span class="underline underline-long"></span>
           </div>
@@ -78,10 +78,10 @@
       </div>
 
       <div class="row">
-        <div class="col-md-12 newsFeed-grid">
+        <div class="col-md-12">
           <ul>
             <% @news_feed.each do |news| %>
-              <li class="newsFeed">
+              <li class="well well-sm">
                 <%= link_to "#{news[1]}", "/users/#{news[0]}" %>
               </li>
             <% end %>
