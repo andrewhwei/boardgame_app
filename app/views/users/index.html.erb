@@ -36,21 +36,20 @@
 
 <section class="screenshots" id="screenshots">
   
-  <div class="container">
-    
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-head-left">
-          <h1>Users</h1>
-          <span class="underline underline-long"></span>
+  <% if @random_users.any? %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-head-left">
+            <h1>Users</h1>
+            <span class="underline underline-long"></span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="screens">
-          <% if @random_users.any? %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="screens">
             <% @random_users.each do |user| %>
               <div class="screen">
                 <%= link_to "/users/#{user.id}" do %>
@@ -63,11 +62,12 @@
                 <% end %>
               </div>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
+
   <% if current_user && !current_user.followees.empty? %>
     <div class="container">
       <div class="row">
