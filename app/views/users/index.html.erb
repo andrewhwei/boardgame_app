@@ -50,18 +50,20 @@
     <div class="row">
       <div class="col-md-12">
         <div class="screens">
-<!--           <% @random_users.each do |user| %>
-            <div class="screen">
-              <%= link_to "/users/#{user.id}" do %>
-                <div class="style_image_crop">
-                  <%= image_tag "#{@pictures.where('id = ?', user.profile_picture)[0].link}" %>
-                </div>
-                <span class="hover-screen">
-                  <i class="fa fa-search"></i>
-                </span>
-              <% end %>
-            </div>
-          <% end %> -->
+          <% if @random_users.any? %>
+            <% @random_users.each do |user| %>
+              <div class="screen">
+                <%= link_to "/users/#{user.id}" do %>
+                  <div class="style_image_crop">
+                    <%= image_tag "#{@pictures.where('id = ?', user.profile_picture)[0].link}" %>
+                  </div>
+                  <span class="hover-screen">
+                    <i class="fa fa-search"></i>
+                  </span>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
