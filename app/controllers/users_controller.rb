@@ -13,13 +13,13 @@ class UsersController < ApplicationController
       followed_users = current_user.followees.last(10).reverse
       @news_feed = {}
       followed_users.each do |news|
-        if news.ownerships.last.num_of_plays == 1
+        if !news.ownerships.empty? && news.ownerships.last.num_of_plays == 1
           @news_feed[news.id] = "#{news.first_name} just played #{news.ownerships.last.boardgame.name} for the first time!"
-        elsif news.ownerships.last.rating <= 5
+        elsif !news.ownerships.empty? && news.ownerships.last.rating <= 5
           @news_feed[news.id] = "#{news.first_name} didn't like #{news.ownerships.last.boardgame.name} and gave it a #{news.ownerships.last.rating}!"
-        elsif news.ownerships.last.rating == 10
+        elsif !news.ownerships.empty? && news.ownerships.last.rating == 10
           @news_feed[news.id] = "#{news.first_name} loved #{news.ownerships.last.boardgame.name} and gave it a #{news.ownerships.last.rating}!"
-        else
+        elsif !news.ownerships.empty?
           @news_feed[news.id] = "#{news.first_name} recently played #{news.ownerships.last.boardgame.name} and rated it a #{news.ownerships.last.rating} out of 10."
         end
       end

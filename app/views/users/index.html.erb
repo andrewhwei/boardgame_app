@@ -54,7 +54,9 @@
               <div class="screen">
                 <%= link_to "/users/#{user.id}" do %>
                   <div class="style_image_crop">
-                    <%= image_tag "#{@pictures.where('id = ?', user.profile_picture)[0].link}" %>
+                    <% if user.profile_picture && !@pictures.where('id = ?', user.profile_picture).empty? %>
+                      <%= image_tag "#{@pictures.where('id = ?', user.profile_picture)[0].link}" %>
+                    <% end %>
                   </div>
                   <span class="hover-screen">
                     <i class="fa fa-search"></i>
@@ -86,6 +88,9 @@
               <li class="well well-sm">
                 <%= link_to "#{news[1]}", "/users/#{news[0]}" %>
               </li>
+            <% end %>
+            <% if @news_feed.empty? %>
+              <li class="well well-sm">There is no recent activity in your network.</li>
             <% end %>
           </ul>
         </div>
